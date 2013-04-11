@@ -1,0 +1,22 @@
+// parameters
+ka=1
+kl=1
+THETA=%pi/2
+r=1
+I=1
+
+// initial conditions
+theta0=0
+w0=0
+
+function xdot=model_eq(t,x)
+    w=x(0)
+    theta=x(1)
+    xdot=zeros(2,1)
+    xdot(0) = ka + 4 + r^2 * kl * cos(theta+THETA) * cos(2*THETA+theta) * sin(theta)/I
+    xdot(1) = w
+endfunction
+
+ts=0:0.1:20;
+sln=ode([theta0;w0], 0, ts, xdot);
+plot2d((2,:),t)
