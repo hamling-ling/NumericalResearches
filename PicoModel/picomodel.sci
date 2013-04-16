@@ -1,16 +1,18 @@
 // parameters
-ka=0.4225   // tosional spring constant
+ka=0.43   // tosional spring constant
 kl=10;      // horizontal spring constant
+kd=2.9      // decay const
+
 THETA=%pi/2 // angle w/o spring
 r=1         // radius
 I=1         // moment of inertia
-kd=0.9      // decay const
 
 // initial conditions
 theta0=%pi*(1.5/2)
 w0=0
 
 clear displacement
+
 function x=displacement(angle_a,angle_b)
     x_a=(2*r*sin(angle_a/2))
     x_b=(2*r*sin(angle_b/2))
@@ -22,11 +24,6 @@ function x=torque_l(angle_a,angle_b)
     displ = displacement(angle_a, angle_a + angle_b)
     Fl = kl * displ
     x = r * Fl * (-1) .* sin((%pi + angle_a + angle_b)/2)
-endfunction
-
-clear torque_l_nox
-function x=torque_l_nox(T)
-    x = (-1) .* sin((%pi+T)/2)
 endfunction
 
 clear torque_a
@@ -46,11 +43,27 @@ function xdot=model_eq(t,x)
     xdot(2) = w
 endfunction
 
-ts=0:0.1:60;
-sln=ode([w0;theta0], 0, ts, model_eq);
+clear simulate
+function simulate()
+    ts=0:0.1:60;
+    sln=ode([w0;theta0], 0, ts, model_eq);
+    plot2d(ts,(sln(2,:)+THETA)/%pi)
+endfunction
 
-f2=scf(2)
-plot2d(ts,(sln(2,:)+THETA)/%pi)
+clear simulatemany
+function simulatemany()
+    theta0s=linspace(%pi*(1/2),%pi*(1.5/2),10)
+    for theta0=theta0s
+        ts=0:0.1:60;
+        sln=ode([w0;theta0], 0, ts, model_eq);
+        plot2d(ts,(sln(2,:)+THETA)/%pi)
+    end
+endfunction
+
+//simulate();
+simulatemany();
+
 title('Peco Model Simulation');
 xlabel('$Time[s])$');
 ylabel('$\theta+\theta_0[rad]$');
+    
