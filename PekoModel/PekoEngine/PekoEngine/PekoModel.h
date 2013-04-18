@@ -1,6 +1,6 @@
 #pragma once
 
-#define MODEL_DELTA_T		0.033f
+#define MODEL_DELTA_T		0.033
 
 namespace pekomodel {
 
@@ -9,6 +9,7 @@ namespace pekomodel {
 	typedef struct {
 		MODELFLOAT theta;
 		MODELFLOAT omega;
+		MODELFLOAT t;
 	} SOLUTION;
 
 	class PekoModel
@@ -27,13 +28,12 @@ namespace pekomodel {
 		const MODELFLOAT dt;
 
 		// fields
-		MODELFLOAT t;
-		MODELFLOAT theta;
-		MODELFLOAT omega;
+		MODELFLOAT _t;
+		MODELFLOAT _theta;
+		MODELFLOAT _omega;
 
-		MODELFLOAT EulerMethod(const MODELFLOAT rhs, const MODELFLOAT x);
-		MODELFLOAT Funcs0(MODELFLOAT t, MODELFLOAT theta, MODELFLOAT omega);
-		MODELFLOAT Funcs1(MODELFLOAT t, MODELFLOAT theta, MODELFLOAT omega);
+		MODELFLOAT Funcs0(const MODELFLOAT t, const MODELFLOAT theta, const MODELFLOAT omega);
+		MODELFLOAT Funcs1(const MODELFLOAT t, const MODELFLOAT theta, const MODELFLOAT omega);
 	};
 
 }

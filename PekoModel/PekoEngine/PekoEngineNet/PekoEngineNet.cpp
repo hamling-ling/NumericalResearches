@@ -13,8 +13,9 @@ namespace PekoEngineNet {
 
 	Solution::Solution(SOLUTION *pSln)
 	{
-		theta = pSln->theta;
-		omega = pSln->omega;
+		theta	= pSln->theta;
+		omega	= pSln->omega;
+		t		= pSln->t;
 	}
 
 	PekoEngineNet::PekoEngineNet()
@@ -53,7 +54,7 @@ namespace PekoEngineNet {
 		m_pEngine->Stop();
 	}
 
-	void PekoEngineNet::Reset(float newTheta, float newOmega)
+	void PekoEngineNet::Reset(MODELFLOAT newTheta, MODELFLOAT newOmega)
 	{
 		m_pEngine->Reset(newTheta, newOmega);
 	}

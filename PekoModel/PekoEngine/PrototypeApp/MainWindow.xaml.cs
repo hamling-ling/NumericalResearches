@@ -33,7 +33,7 @@ namespace PrototypeApp
 			InitializeComponent();
 
 			pe.Initialize();
-			pe.Reset((float)(Math.PI * (1.5 / 2.0)), 0.0f);
+			pe.Reset(Math.PI * 1.5 / 2.0, 0.0f);
 
 			timer.Tick += timer_Tick;
 			timer.Interval = TimeSpan.FromMilliseconds(1000 / 10);
@@ -52,7 +52,7 @@ namespace PrototypeApp
 				return;
 
 			var sln = pe.GetSolution();
-			Debug.WriteLine(sln.theta);
+			Debug.WriteLine(sln.t + ", " + sln.theta);
 			Transform.Y = cv.Height - 50.0*sln.theta;
 		}
 	}

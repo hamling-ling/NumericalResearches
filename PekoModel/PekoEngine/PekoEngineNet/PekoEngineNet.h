@@ -20,6 +20,7 @@ namespace PekoEngineNet {
 	public:
 		MODELFLOAT theta;
 		MODELFLOAT omega;
+		MODELFLOAT t;
 		Solution();
 		Solution(SOLUTION* sln);
 	};
@@ -35,7 +36,7 @@ namespace PekoEngineNet {
 		Solution^ GetSolution();
 		void Start();
 		void Stop();
-		void Reset(float newTheta, float newOmega);
+		void Reset(MODELFLOAT newTheta, MODELFLOAT newOmega);
 
 	private:
 		PekoEngine* m_pEngine;
