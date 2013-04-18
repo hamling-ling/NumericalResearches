@@ -1,6 +1,6 @@
 // parameters
-ka=0.43   // tosional spring constant
-kl=10;      // horizontal spring constant
+ka=7.0525   // tosional spring constant
+kl=100;      // horizontal spring constant
 kd=2.9      // decay const
 
 THETA=%pi/2 // angle w/o spring
@@ -38,7 +38,7 @@ function xdot=model_eq(t,x)
     xdot=zeros(2,1)
     
     tau_l = torque_l(THETA, theta)
-    tau_a = torque_a(theta+THETA)
+    tau_a = torque_a(theta)
     xdot(1) = (tau_a +  tau_l)/I - kd * w
     xdot(2) = w
 endfunction
@@ -52,7 +52,7 @@ endfunction
 
 clear simulatemany
 function simulatemany()
-    theta0s=linspace(%pi*(1/2),%pi*(1.5/2),10)
+    theta0s=linspace(%pi*(1.4/2),%pi*(1.9/2),20)
     for theta0=theta0s
         ts=0:0.1:60;
         sln=ode([w0;theta0], 0, ts, model_eq);
