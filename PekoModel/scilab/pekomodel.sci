@@ -1,4 +1,6 @@
 clc
+clear all
+
 pi=3.14159265358979323846
 // parameters
 ka=7.052225   // tosional spring constant
@@ -13,21 +15,18 @@ I=1         // moment of inertia
 theta0=pi*(1.5/2.0)
 w0=0
 
-clear displacement
 function x=displacement(angle_a,angle_b)
     x_a = 2 * r * sin(angle_a/2)
     x_b = 2 * r * sin(angle_b/2)
     x=x_b-x_a
 endfunction
 
-clear torque_l
 function x=torque_l(angle_a,angle_b)
     displ = displacement(angle_a, angle_a + angle_b)
     Fl = kl * displ
-    x = r * Fl * (-1) .* sin((pi + angle_a + angle_b)/2)
+    x = r * Fl * (-1) * sin((pi + angle_a + angle_b)/2)
 endfunction
 
-clear torque_a
 function x=torque_a(angle)
     x = - ka * angle
 endfunction
@@ -44,14 +43,12 @@ function xdot=model_eq(t,x)
     xdot(2) = w
 endfunction
 
-clear simulate
 function simulate()
     ts=0:0.1:80;
     sln=ode([w0;theta0], 0, ts, model_eq);
     plot2d(ts,(sln(2,:)+THETA)/pi)
 endfunction
 
-clear simulatemany
 function simulatemany()
     theta0s=linspace(pi*(1.4/2),pi*(1.9/2),20)
     for theta0=theta0s

@@ -32,8 +32,8 @@ namespace pekomodel {
 		MODELFLOAT _theta;
 		MODELFLOAT _omega;
 
-		MODELFLOAT Funcs0(const MODELFLOAT t, const MODELFLOAT theta, const MODELFLOAT omega);
-		MODELFLOAT Funcs1(const MODELFLOAT t, const MODELFLOAT theta, const MODELFLOAT omega);
+		MODELFLOAT Funcs0(const MODELFLOAT t, const MODELFLOAT omega, const MODELFLOAT theta);
+		MODELFLOAT Funcs1(const MODELFLOAT t, const MODELFLOAT omega, const MODELFLOAT theta);
 	};
 
 }

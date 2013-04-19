@@ -45,23 +45,24 @@ namespace pekomodel {
 	void PekoModel::GetNext()
 	{
 #ifdef RUNGE_KUTTA
-		MODELFLOAT k1_theta = Funcs0(_t,		_theta,					_omega);
-		MODELFLOAT k1_omega = Funcs1(_t,		_theta,					_omega);
-		MODELFLOAT k2_theta = Funcs0(_t+dt/2.0,	_theta+dt*k1_theta/2.0,	_omega+dt*k1_omega/2.0);
-		MODELFLOAT k2_omega = Funcs1(_t+dt/2.0,	_theta+dt*k1_theta/2.0,	_omega+dt*k1_omega/2.0);
-		MODELFLOAT k3_theta = Funcs0(_t+dt/2.0,	_theta+dt*k2_theta/2.0,	_omega+dt*k2_omega/2.0);
-		MODELFLOAT k3_omega = Funcs1(_t+dt/2.0,	_theta+dt*k2_theta/2.0,	_omega+dt*k2_omega/2.0);
-		MODELFLOAT k4_theta = Funcs0(_t+dt,		_theta+dt*k3_theta,		_omega+dt*k3_omega);
-		MODELFLOAT k4_omega = Funcs1(_t+dt,		_theta+dt*k3_theta,		_omega+dt*k3_omega);
 
-		_theta += dt*(k1_theta + 2.0*k2_theta + 2.0*k3_theta + k4_theta)/6.0;
+		MODELFLOAT k1_omega = Funcs0(_t,		_omega,					_theta);
+		MODELFLOAT k1_theta = Funcs1(_t,		_omega,					_theta);
+		MODELFLOAT k2_omega = Funcs0(_t+dt/2.0,	_omega+dt*k1_omega/2.0,	_theta+dt*k1_theta/2.0);
+		MODELFLOAT k2_theta = Funcs1(_t+dt/2.0,	_omega+dt*k1_omega/2.0,	_theta+dt*k1_theta/2.0);
+		MODELFLOAT k3_omega = Funcs0(_t+dt/2.0,	_omega+dt*k2_omega/2.0,	_theta+dt*k2_theta/2.0);
+		MODELFLOAT k3_theta = Funcs1(_t+dt/2.0,	_omega+dt*k2_omega/2.0,	_theta+dt*k2_theta/2.0);
+		MODELFLOAT k4_omega = Funcs0(_t+dt,		_omega+dt*k3_omega,		_theta+dt*k3_theta);
+		MODELFLOAT k4_theta = Funcs1(_t+dt,		_omega+dt*k3_omega,		_theta+dt*k3_theta);
+
 		_omega += dt*(k1_omega + 2.0*k2_omega + 2.0*k3_omega + k4_omega)/6.0;
+		_theta += dt*(k1_theta + 2.0*k2_theta + 2.0*k3_theta + k4_theta)/6.0;
 #else
-		MODELFLOAT dtheta_dt = Funcs0(_t,		_theta,					_omega);
-		MODELFLOAT domega_dt = Funcs1(_t,		_theta,					_omega);
+		MODELFLOAT domega_dt = Funcs0(_t,		_omega,					_theta);
+		MODELFLOAT dtheta_dt = Funcs1(_t,		_omega,					_theta);
 
-		_theta += dt*dtheta_dt;
 		_omega *= dt*domega_dt;
+		_theta += dt*dtheta_dt;
 #endif
 		_t += dt;
 	}
@@ -74,7 +75,8 @@ namespace pekomodel {
 		return sln;
 	}
 
-	MODELFLOAT PekoModel::Funcs0(const MODELFLOAT t, const MODELFLOAT theta, const MODELFLOAT omega)
+	// domega/dt
+	MODELFLOAT PekoModel::Funcs0(const MODELFLOAT t, const MODELFLOAT omega, const MODELFLOAT theta)
 	{
 		MODELFLOAT totangle = kTheta + theta;
 
@@ -87,12 +89,13 @@ namespace pekomodel {
 
 		MODELFLOAT tau_a = - kKa * theta;
 
-		MODELFLOAT dtheta_dt = (tau_a + tau_l)/kI - kKd * omega;
+		MODELFLOAT domega_dt = (tau_a + tau_l)/kI - kKd * omega;
 
-		return dtheta_dt;
+		return domega_dt;
 	}
 
-	MODELFLOAT PekoModel::Funcs1(const MODELFLOAT t, const MODELFLOAT theta, const MODELFLOAT omega)
+	// dtheta/dt
+	MODELFLOAT PekoModel::Funcs1(const MODELFLOAT t, const MODELFLOAT omega, const MODELFLOAT theta)
 	{
 		return omega;
 	}
