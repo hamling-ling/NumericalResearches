@@ -20,14 +20,14 @@ namespace PrototypeApp
 			InitializeComponent();
 
 			pe.Initialize();
-			pe.Reset(Math.PI * 1.48 / 2.0, 0.0f);
+			pe.Reset(Math.PI * 1.47 / 2.0, 0.0f);
 
 			timer.Tick += timer_Tick;
 			timer.Interval = TimeSpan.FromMilliseconds(1000 / 10);
 			timer.Start();
 		}
 
-		private void Button_Click(object sender, RoutedEventArgs e)
+		void Button_Click(object sender, RoutedEventArgs e)
 		{
 			pe.Start();
 		}
@@ -44,6 +44,8 @@ namespace PrototypeApp
 
 			LeftArmRotateTransform.Angle = -theta_half_deg;
 			RightArmRotateTransform.Angle = theta_half_deg;
+
+			TimeOutput.Text = sln.t.ToString("F2");
 		}
 	}
 

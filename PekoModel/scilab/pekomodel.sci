@@ -53,7 +53,7 @@ function simulatemany()
     for theta0=theta0s
         ts=0:0.1:60;
         sln=ode([w0;theta0], 0, ts, model_eq);
-        plot2d(ts,(sln(2,:)+THETA)/pi)
+        plot2d(ts,(sln(2,:)+THETA)/%pi)
     end
 endfunction
 

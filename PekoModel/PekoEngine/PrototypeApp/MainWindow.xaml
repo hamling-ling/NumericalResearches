@@ -20,8 +20,12 @@
 
 	<Grid>
 		<StackPanel Background="Gray">
-			<Button Width="100" Height="30" Content="start" VerticalAlignment="Top" HorizontalAlignment="Left"
-				Click="Button_Click"/>
+			<StackPanel Orientation="Horizontal">
+				<Button Width="100" Height="30" Content="start" VerticalAlignment="Top" HorizontalAlignment="Left"
+						Click="Button_Click"/>
+				<TextBlock Text="t=" Margin="30,0,0,0" FontSize="20" Foreground="White"/>
+				<TextBlock Name="TimeOutput"  FontSize="20" Foreground="White" Width="100"/>
+			</StackPanel>
 			<Canvas Name="cv" Width="320" Height="480" Background="White">
 				<Path Name="LeftArm" Stroke="Blue" StrokeThickness="5" Data="{StaticResource ArmGeometry}">
 					<Path.RenderTransform>
