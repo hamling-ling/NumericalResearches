@@ -32,7 +32,6 @@ namespace PrototypeApp
 			pe.Start();
 		}
 
-
 		void timer_Tick(object sender, EventArgs e)
 		{
 			if (!IsLoaded)
