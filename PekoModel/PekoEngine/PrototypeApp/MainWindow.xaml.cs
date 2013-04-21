@@ -1,21 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-using PekoEngineNet;
 using System.Windows.Threading;
-using System.Diagnostics;
 
 namespace PrototypeApp
 {
@@ -24,6 +9,8 @@ namespace PrototypeApp
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		static readonly double kTheta = Math.PI / 2.0;
+
 		PekoEngineNet.PekoEngineNet pe = new PekoEngineNet.PekoEngineNet();
 
 		DispatcherTimer timer = new DispatcherTimer();
@@ -33,7 +20,7 @@ namespace PrototypeApp
 			InitializeComponent();
 
 			pe.Initialize();
-			pe.Reset(Math.PI * 1.5 / 2.0, 0.0f);
+			pe.Reset(Math.PI * 1.48 / 2.0, 0.0f);
 
 			timer.Tick += timer_Tick;
 			timer.Interval = TimeSpan.FromMilliseconds(1000 / 10);
@@ -52,8 +39,20 @@ namespace PrototypeApp
 				return;
 
 			var sln = pe.GetSolution();
-			Debug.WriteLine(sln.t + ", " + sln.theta);
-			Transform.Y = cv.Height - 50.0*sln.theta;
+
+			var theta_half_rad = (kTheta+sln.theta) / 2.0;
+			var theta_half_deg = theta_half_rad.ToDeg();
+
+			LeftArmRotateTransform.Angle = -theta_half_deg;
+			RightArmRotateTransform.Angle = theta_half_deg;
+		}
+	}
+
+	public static class Utility
+	{
+		public static double ToDeg(this double value)
+		{
+			return value / Math.PI * 180.0;
 		}
 	}
 }
