@@ -14,7 +14,7 @@ w=100   // w
 // boundary conditions
 y0=0    // y(0)
 y1=0    // y(1)
-y0dot=3 // d/dx y(0)
+y0dot=0 // d/dx y(0)
 y1dot=-y0dot // d/dx y(1)
 
 // computing constants c1-c4
