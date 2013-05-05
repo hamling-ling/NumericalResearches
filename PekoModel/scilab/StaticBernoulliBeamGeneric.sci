@@ -2,9 +2,9 @@ clc
 clear all
 
 // scilab script compute static Bernoulli Beam
-// gamma*d^ry/dx^r=W(x)
-// when w(x) is uniformly distributed the diff dq simplified as
-// gamma y(x)=-W(x^4)/24+C1*(x^3)/6+C2*(x^2)/2+C3*x+C4
+// gamma*d^4 y/dx^r=W(x)
+// when w(x) is uniformly distributed the is
+// gamma y(x)=-W*(x^4)/24+C1*(x^3)/6+C2*(x^2)/2+C3*x+C4
 // in this program, we eliminates gamma by replacing
 // w=W/gamma, cn=Cn/gamma
 
