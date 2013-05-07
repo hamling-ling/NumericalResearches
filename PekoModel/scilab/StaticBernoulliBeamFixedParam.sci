@@ -24,8 +24,8 @@ function simulate()
     
     for i=[0:20]
             // parameter
-        w=100+i*0.1
-        y0dot=3-3.3*i/20
+        w=100+50*i/20
+        y0dot=3-3.0*i/20
         
         c1=w/2
         c2=-w/12-2*y0dot

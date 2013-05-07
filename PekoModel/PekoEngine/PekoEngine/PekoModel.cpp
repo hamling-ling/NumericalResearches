@@ -24,6 +24,7 @@ namespace pekomodel {
 	static const MODELFLOAT kTheta	= M_PI/2.0;
 	static const MODELFLOAT kR		= 1.0;
 	static const MODELFLOAT kI		= 1.0;
+	static const MODELFLOAT kThetaLim = M_PI * 1.5 / 2.0;
 
 	PekoModel::PekoModel()
 		:	dt(MODEL_DELTA_T)
@@ -40,6 +41,7 @@ namespace pekomodel {
 		_theta = newTheta;
 		_omega = newOmega;
 		_t = 0;
+		memset(_points, 0, sizeof(_points));
 	}
 
 	void PekoModel::GetNext()
@@ -67,11 +69,15 @@ namespace pekomodel {
 		_t += dt;
 	}
 
-	SOLUTION* PekoModel::GetSolution(SOLUTION* sln)
+	SOLUTION* PekoModel::GetSolution(SOLUTION* sln, double scale)
 	{
 		sln->theta	= _theta;
 		sln->omega	= _omega;
 		sln->t		= _t;
+
+		ComputeLine(_theta/kThetaLim, scale);
+		memcpy(sln->points, _points, sizeof(_points));
+
 		return sln;
 	}
 
@@ -100,4 +106,47 @@ namespace pekomodel {
 		return omega;
 	}
 
+	// input must be between [0,1]
+	ModelPoint* PekoModel::ComputeLine(double input, double scale)
+	{
+		double w = 100.0 + 50.0*input;
+		double s = 3.0 - 3.0*input;
+
+		double c1 = w/2.0;
+		double c2 = -w/12.0 - 2.0*s;
+		double c3 = s;
+		double c4 = 0;
+
+		double dx = 1.0 / (MODEL_POINTS_LEN-1);
+		double x = 0;
+
+		for(int i = 0; i < MODEL_POINTS_LEN; i++)
+		{
+			ModelPoint p = _points[i];
+			p.x = x * scale;
+			p.y = LineFunc(x, w, c1, c2, c3, c4) * scale;
+			_points[i] = p;
+
+			p.x = scale - p.x;
+			_points[MODEL_POINTS_LEN - i - 1] = p;
+
+			x += dx;
+		}
+
+		return _points;
+	}
+
+	double PekoModel::LineFunc(double x, double w, double c1, double c2, double c3, double c4)
+	{
+		double x2 = x*x;
+		double x3 = x2*x;
+		double x4 = x3*x;
+
+		double y = -w * x4 / 24.0 +
+					c1 * x3 / 6.0 +
+					c2 * x2 / 2.0 +
+					c3 * x +
+					c4;
+		return y;
+	}
 }

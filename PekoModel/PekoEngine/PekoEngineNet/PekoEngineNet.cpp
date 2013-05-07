@@ -16,6 +16,15 @@ namespace PekoEngineNet {
 		theta	= pSln->theta;
 		omega	= pSln->omega;
 		t		= pSln->t;
+		points = gcnew array<Point^>(MODEL_POINTS_LEN);
+		for(int i = 0; i < MODEL_POINTS_LEN; i++)
+		{
+			Point^ p = gcnew Point();
+			p->X =pSln->points[i].x;
+			p->Y =pSln->points[i].y;
+
+			points[i]=p;
+		}
 	}
 
 	PekoEngineNet::PekoEngineNet()
@@ -35,10 +44,10 @@ namespace PekoEngineNet {
 		return m_pEngine->Initialize();
 	}
 
-	Solution^ PekoEngineNet::GetSolution()
+	Solution^ PekoEngineNet::GetSolution(double scale)
 	{
 		SOLUTION natSln;
-		m_pEngine->GetSolution(&natSln);
+		m_pEngine->GetSolution(&natSln, scale);
 
 		Solution^ clrSln = gcnew Solution(&natSln);
 		return clrSln;

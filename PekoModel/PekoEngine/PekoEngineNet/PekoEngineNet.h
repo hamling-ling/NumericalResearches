@@ -3,11 +3,13 @@
 #pragma once
 #include <PekoEngine.h>
 
+#using "WindowsBase.dll"
+
 using namespace System;
 using namespace pekoengine;
 
-
 using namespace System;
+using namespace System::Windows;
 using namespace pekoengine;
 using namespace System::Collections::Generic;
 
@@ -21,6 +23,11 @@ namespace PekoEngineNet {
 		MODELFLOAT theta;
 		MODELFLOAT omega;
 		MODELFLOAT t;
+
+		//include followings to use Point
+		//C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5
+		array<Point^>^ points;
+
 		Solution();
 		Solution(SOLUTION* sln);
 	};
@@ -33,7 +40,7 @@ namespace PekoEngineNet {
 		~PekoEngineNet();
 		int Initialize();
 
-		Solution^ GetSolution();
+		Solution^ GetSolution(double scale);
 		void Start();
 		void Stop();
 		void Reset(MODELFLOAT newTheta, MODELFLOAT newOmega);

@@ -19,8 +19,6 @@ namespace pekoengine {
 		:	m_pModel(NULL), m_isProcRunning(false), m_stopProc(false)
 	{
 		m_pModel = new PekoModel();
-		m_pCallbackFunc = NULL;
-		m_pCallbackFuncOwner = NULL;
 	}
 
 	PekoEngine::~PekoEngine()
@@ -62,21 +60,15 @@ namespace pekoengine {
 		pthread_mutex_unlock(&m_modelMutex);
 	}
 
-	void PekoEngine::SetCallback(EngCallbackFunc callback, void* funcOwner)
-	{
-		m_pCallbackFunc = callback;
-		m_pCallbackFuncOwner = funcOwner;
-	}
-
 	bool PekoEngine::IsRunning()
 	{
 		return m_isProcRunning;
 	}
 
-	SOLUTION* PekoEngine::GetSolution(SOLUTION* sln)
+	SOLUTION* PekoEngine::GetSolution(SOLUTION* sln, double scale)
 	{
 		pthread_mutex_lock(&m_modelMutex);
-		m_pModel->GetSolution(sln);
+		m_pModel->GetSolution(sln, scale);
 		pthread_mutex_unlock(&m_modelMutex);
 
 		return sln;
@@ -97,22 +89,7 @@ namespace pekoengine {
 
 			pthread_mutex_lock(&m_modelMutex);
 			m_pModel->GetNext();
-
-			// Notify
-			if(m_pCallbackFunc && m_pCallbackFuncOwner != NULL) {
-				EngineEventArg arg;
-
-				m_pModel->GetSolution(&arg.sln);
-				pthread_mutex_unlock(&m_modelMutex);
-
-				if(m_stopProc)
-					break;
-
-				m_pCallbackFunc(m_pCallbackFuncOwner, arg);
-			}
-			else {
-				pthread_mutex_unlock(&m_modelMutex);
-			}
+			pthread_mutex_unlock(&m_modelMutex);
 
 			MILSLEEP(MODEL_DELTA_T * 1000.0);
 		}

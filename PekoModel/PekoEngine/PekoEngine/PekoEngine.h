@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include <pthread.h>
 #include "PekoModel.h"
 #define SAFE_DELETE(p)  { delete p; p=NULL; }
@@ -28,20 +29,15 @@ namespace pekoengine {
 		void Start();
 		void Stop();
 		void Reset(MODELFLOAT newTheta, MODELFLOAT newOmega);
-		void SetCallback(EngCallbackFunc callback, void* funcOwner);
 		bool IsRunning();
-		SOLUTION* GetSolution(SOLUTION* sln);
-
-		// debug
-		void CallMeBack();
+		
+		SOLUTION* GetSolution(SOLUTION* sln, double scale);
 
 	private :
 
 		PekoModel*		m_pModel;
 		pthread_mutex_t m_modelMutex;
 		pthread_t		m_thread;
-		EngCallbackFunc	m_pCallbackFunc;
-		void*			m_pCallbackFuncOwner;
 		bool			m_stopProc;
 		bool			m_isProcRunning;
 

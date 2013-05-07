@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Threading;
+using System.Linq;
+using PekoEngineNet;
 
 namespace PrototypeApp
 {
@@ -15,6 +20,8 @@ namespace PrototypeApp
 
 		DispatcherTimer timer = new DispatcherTimer();
 
+		readonly List<Point> points = new List<Point>();
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -25,6 +32,11 @@ namespace PrototypeApp
 			timer.Tick += timer_Tick;
 			timer.Interval = TimeSpan.FromMilliseconds(1000 / 10);
 			timer.Start();
+
+			for (int i = 0; i < 32; i++)
+			{
+				points.Add(new Point());
+			}
 		}
 
 		void Button_Click(object sender, RoutedEventArgs e)
@@ -37,8 +49,7 @@ namespace PrototypeApp
 			if (!IsLoaded)
 				return;
 
-			var sln = pe.GetSolution();
-
+			var sln = pe.GetSolution(100);
 			var theta_half_rad = (kTheta+sln.theta) / 2.0;
 			var theta_half_deg = theta_half_rad.ToDeg();
 
@@ -46,6 +57,9 @@ namespace PrototypeApp
 			RightArmRotateTransform.Angle = theta_half_deg;
 
 			TimeOutput.Text = sln.t.ToString("F2");
+
+			var pointpoints = sln.points.Cast<Point>();
+			lines.Points = new PointCollection(pointpoints);
 		}
 	}
 

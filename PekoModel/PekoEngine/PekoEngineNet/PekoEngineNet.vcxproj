@@ -54,6 +54,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>$(SolutionDir)PekoEngine;$(SolutionDir)pthread\include</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -70,6 +71,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <AdditionalIncludeDirectories>$(SolutionDir)PekoEngine;$(SolutionDir)pthread\include</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
