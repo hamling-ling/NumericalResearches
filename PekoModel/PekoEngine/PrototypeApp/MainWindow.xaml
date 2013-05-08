@@ -26,7 +26,7 @@
 				<TextBlock Text="t=" Margin="30,0,0,0" FontSize="20" Foreground="White"/>
 				<TextBlock Name="TimeOutput"  FontSize="20" Foreground="White" Width="100"/>
 			</StackPanel>
-			<Grid>
+			<Grid Opacity="0.05">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="1*"/>
 					<RowDefinition Height="1*"/>

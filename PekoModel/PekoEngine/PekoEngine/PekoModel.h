@@ -1,25 +1,10 @@
 #pragma once
 
-#define MODEL_DELTA_T		0.033
-#define MODEL_POINTS_LEN	32
+#include "ModelType.h"
+
+using namespace osakanamodel;
 
 namespace pekomodel {
-
-	typedef double MODELFLOAT;
-
-	
-	typedef struct MODELPOINT
-	{
-		MODELFLOAT x;
-		MODELFLOAT y;
-	} ModelPoint;
-
-	typedef struct {
-		MODELFLOAT theta;
-		MODELFLOAT omega;
-		MODELFLOAT t;
-		MODELPOINT points[MODEL_POINTS_LEN];
-	} SOLUTION;
 
 	class PekoModel
 	{

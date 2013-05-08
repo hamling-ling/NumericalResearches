@@ -120,7 +120,7 @@ namespace pekomodel {
 		double dx = 1.0 / (MODEL_POINTS_LEN-1);
 		double x = 0;
 
-		for(int i = 0; i < MODEL_POINTS_LEN; i++)
+		for(int i = 0; i < MODEL_POINTS_LEN/2+1; i++)
 		{
 			ModelPoint p = _points[i];
 			p.x = x * scale;

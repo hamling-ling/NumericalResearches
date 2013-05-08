@@ -84,12 +84,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="modeltool.h" />
+    <ClInclude Include="ModelType.h" />
     <ClInclude Include="PekoEngine.h" />
     <ClInclude Include="PekoModel.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="modeltool.cpp" />
     <ClCompile Include="PekoEngine.cpp" />
     <ClCompile Include="PekoModel.cpp" />
     <ClCompile Include="stdafx.cpp">
