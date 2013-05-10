@@ -3,7 +3,7 @@
 #define MODELTYPE_H
 
 #define MODEL_DELTA_T		0.033
-#define MODEL_POINTS_LEN	3		// must be an odd number
+#define MODEL_POINTS_LEN	31		// must be an odd number
 
 namespace osakanamodel {
 
