@@ -3,9 +3,10 @@
 clc
 clear all
 
-function y=f(x,w,c1,c2,c3,c4)
-    x=0.5+x
-    y = -w*(x^4)/24 + c1*(x^3)/6 + c2*(x^2)/2 + c3*x + c4
+function y=f(x,y,w,c1,c2,c3,c4)
+    //r=sqrt((x+0.5)^2+(y+0.5)^2)
+    r=0.5+sqrt((x)^2+(y)^2)
+    y = -w*(r^4)/24 + c1*(r^3)/6 + c2*(r^2)/2 + c3*r + c4
 endfunction
 
 function simulate()
@@ -27,7 +28,7 @@ function simulate()
         y=ys(i)
         for j=1:length(xs)
             x=xs(j)
-            zs(j,i)=f(sqrt(x^2+y^2),w,c1,c2,c3,c4)
+            zs(j,i)=f(x,y,w,c1,c2,c3,c4)
         end
     end
 
