@@ -14,7 +14,7 @@ namespace pekomodel {
 
 		void GetNext();
 		SOLUTION* GetSolution(SOLUTION* sln, double scale);
-		void Reset(MODELFLOAT newTheta, MODELFLOAT newOmega);
+		void Reset();
 
 	private:
 

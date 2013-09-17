@@ -28,7 +28,7 @@ namespace pekoengine {
 		int Initialize();
 		void Start();
 		void Stop();
-		void Reset(MODELFLOAT newTheta, MODELFLOAT newOmega);
+		void Reset();
 		bool IsRunning();
 		
 		SOLUTION* GetSolution(SOLUTION* sln, double scale);

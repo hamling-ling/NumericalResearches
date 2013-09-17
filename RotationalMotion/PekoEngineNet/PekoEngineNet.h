@@ -43,7 +43,7 @@ namespace PekoEngineNet {
 		Solution^ GetSolution(double scale);
 		void Start();
 		void Stop();
-		void Reset(MODELFLOAT newTheta, MODELFLOAT newOmega);
+		void Reset();
 
 	private:
 		PekoEngine* m_pEngine;

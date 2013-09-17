@@ -21,20 +21,19 @@ namespace RotationalMotion
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		static readonly double kTheta = Math.PI / 2.0;
-
 		PekoEngineNet.PekoEngineNet pe = new PekoEngineNet.PekoEngineNet();
 
-		DispatcherTimer timer = new DispatcherTimer();
+		readonly DispatcherTimer timer = new DispatcherTimer();
 
 		readonly List<Point> points = new List<Point>();
+
+		readonly double scale = 20.0;
 
 		public MainWindow()
 		{
 			InitializeComponent();
 
 			pe.Initialize();
-			pe.Reset(Math.PI * 1.47 / 2.0, 0.0f);
 
 			timer.Tick += timer_Tick;
 			timer.Interval = TimeSpan.FromMilliseconds(1000 / 10);
@@ -57,16 +56,18 @@ namespace RotationalMotion
 				return;
 
 			var sln = pe.GetSolution(100);
-			var theta_half_rad = (kTheta + sln.theta) / 2.0;
-			var theta_half_deg = theta_half_rad.ToDeg();
-
-			LeftArmRotateTransform.Angle = -theta_half_deg;
-			RightArmRotateTransform.Angle = theta_half_deg;
 
 			TimeOutput.Text = sln.t.ToString("F2");
 
-			var pointpoints = sln.points.Cast<Point>();
-			lines.Points = new PointCollection(pointpoints);
+			var scaled = new List<Point>(sln.points.Count());
+			for (int i = 0; i < sln.points.Count(); i++)
+			{
+				var nonscaled = (Point)sln.points[i];
+				scaled.Add(new Point(nonscaled.X * scale, nonscaled.Y * scale));
+			}
+			scaled.Add(scaled.First());
+
+			lines.Points = new PointCollection(scaled);
 		}
 	}
 

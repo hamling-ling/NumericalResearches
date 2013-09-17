@@ -51,12 +51,12 @@ namespace pekoengine {
 		pthread_join(m_thread, NULL);
 	}
 
-	void PekoEngine::Reset(MODELFLOAT newTheta, MODELFLOAT newOmega)
+	void PekoEngine::Reset()
 	{
 		Stop();
 
 		pthread_mutex_lock(&m_modelMutex);
-		m_pModel->Reset(newTheta, newOmega);
+		m_pModel->Reset();
 		pthread_mutex_unlock(&m_modelMutex);
 	}
 

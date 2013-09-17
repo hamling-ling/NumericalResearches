@@ -63,8 +63,8 @@ namespace PekoEngineNet {
 		m_pEngine->Stop();
 	}
 
-	void PekoEngineNet::Reset(MODELFLOAT newTheta, MODELFLOAT newOmega)
+	void PekoEngineNet::Reset()
 	{
-		m_pEngine->Reset(newTheta, newOmega);
+		m_pEngine->Reset();
 	}
 }

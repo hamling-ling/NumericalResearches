@@ -3,7 +3,7 @@
 #define MODELTYPE_H
 
 #define MODEL_DELTA_T		0.033
-#define MODEL_POINTS_LEN	31		// must be an odd number
+#define MODEL_POINTS_LEN	4		// must be an odd number
 
 namespace osakanamodel {
 
@@ -37,13 +37,13 @@ namespace osakanamodel {
 		MODELVEC3D v[2];
 	} MODELLINE;
 
-	typedef union _SKIRECT
+	typedef union _MODELRECT
 	{
 		struct {
 			MODELVEC3D bottom_left;
 			MODELVEC3D bottom_right;
 			MODELVEC3D top_right;
-            MODELVEC3D top_left;
+			MODELVEC3D top_left;
 		};
 		MODELVEC3D v[4];
 	} MODELRECT;
