@@ -30,9 +30,12 @@ namespace pekomodel {
 
 	void PekoModel::Reset()
 	{
-		_theta = 0.0f;
-		_omega = 0.0f;
+		_theta = ZEROVEC3D;
+		_omega = ZEROVEC3D;
 		_t = 0;
+		_v = ZEROVEC3D;
+		_x = ZEROVEC3D;
+
 		memset(_points, 0, sizeof(_points));
 
 		_points[0].x = 0.0f;
@@ -48,6 +51,15 @@ namespace pekomodel {
 	void PekoModel::GetNext()
 	{
 		_t += dt;
+
+		MODELVEC3D Ftot = G;
+		MODELFLOAT X = 0.0;
+
+		// dv/dt = F/m
+		// dx/dt = v
+
+		// domega/dt = tau/I
+		// dtheta/dt = omega
 	}
 
 	SOLUTION* PekoModel::GetSolution(SOLUTION* sln, double scale)
@@ -61,7 +73,7 @@ namespace pekomodel {
 	}
 
 	// domega/dt
-	MODELFLOAT PekoModel::Funcs0(const MODELFLOAT t, const MODELFLOAT omega, const MODELFLOAT theta)
+	MODELFLOAT PekoModel::Func0(const MODELFLOAT t, const MODELFLOAT omega, const MODELFLOAT theta)
 	{
 		MODELFLOAT domega_dt = 0.0;
 
@@ -69,7 +81,7 @@ namespace pekomodel {
 	}
 
 	// dtheta/dt
-	MODELFLOAT PekoModel::Funcs1(const MODELFLOAT t, const MODELFLOAT omega, const MODELFLOAT theta)
+	MODELFLOAT PekoModel::Func1(const MODELFLOAT t, const MODELFLOAT omega, const MODELFLOAT theta)
 	{
 		return omega;
 	}

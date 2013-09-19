@@ -13,8 +13,8 @@ namespace PekoEngineNet {
 
 	Solution::Solution(SOLUTION *pSln)
 	{
-		theta	= pSln->theta;
-		omega	= pSln->omega;
+		theta	= pSln->theta.z;
+		omega	= pSln->omega.z;
 		t		= pSln->t;
 		points = gcnew array<Point^>(MODEL_POINTS_LEN);
 		for(int i = 0; i < MODEL_POINTS_LEN; i++)

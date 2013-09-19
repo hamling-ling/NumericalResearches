@@ -21,6 +21,7 @@ namespace osakanamodel {
 	static const MODELVEC3D XAXIS = {1.0, 0.0, 0.0};
 	static const MODELVEC3D YAXIS = {0.0, 1.0, 0.0};
 	static const MODELVEC3D ZAXIS = {0.0, 0.0, 1.0};
+	static const MODELVEC3D ZEROVEC3D = {0.0, 0.0, 0.0};
 
 	MODELVEC3D* NormalForce(const MODELFLOAT mass, const MODELVEC3D *normal, MODELVEC3D *ret);
 	MODELVEC3D* ProjBOntoA(const MODELVEC3D *a, const MODELVEC3D *b, MODELVEC3D *ret);
