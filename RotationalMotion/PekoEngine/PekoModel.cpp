@@ -53,13 +53,32 @@ namespace pekomodel {
 		_t += dt;
 
 		MODELVEC3D Ftot = G;
-		MODELFLOAT X = 0.0;
+		MODELVEC3D Tau = MODELVEC3DMake(0.0, 0.0, 0.1);
 
-		// dv/dt = F/m
-		// dx/dt = v
+		// dv/dt = F/m -> v = F/m * dt - v-
+		MODELVEC3D Vnxt;
+		ScaleVec(dt, &Ftot, &Vnxt);
+		SubtVec(&Vnxt, &_v, &Vnxt);
 
-		// domega/dt = tau/I
-		// dtheta/dt = omega
+		// dx/dt = v -> x = v * dt - x-
+		MODELVEC3D Xnxt;
+		ScaleVec(dt, &Vnxt, &Xnxt); 
+		SubtVec(&Xnxt, &_x, &Xnxt);
+
+		// domega/dt = tau/I -> w = tau/I * dt - w-
+		MODELVEC3D Wnxt;
+		ScaleVec(dt, &Tau, &Wnxt);
+		SubtVec(&Wnxt, &_omega, &Wnxt);
+
+		// dtheta/dt = omega -> theta = omega * dt - theta-
+		MODELVEC3D Theta;
+		ScaleVec(dt, &Wnxt, &Theta);
+		SubtVec(&Theta, &_theta, &Theta);
+
+		_v = Vnxt;
+		_x = Xnxt;
+		_omega = Wnxt;
+		_theta = _theta;
 	}
 
 	SOLUTION* PekoModel::GetSolution(SOLUTION* sln, double scale)
