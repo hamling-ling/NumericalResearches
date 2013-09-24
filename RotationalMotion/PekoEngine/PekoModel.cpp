@@ -33,19 +33,19 @@ namespace pekomodel {
 		_theta = ZEROVEC3D;
 		_omega = ZEROVEC3D;
 		_t = 0;
-		_v = ZEROVEC3D;
+		_v = MODELVEC3DMake(0.0, 10.0, 0.0);;
 		_x = ZEROVEC3D;
 
 		memset(_points, 0, sizeof(_points));
 
-		_points[0].x = 0.0f;
-		_points[0].y = 0.0f;
-		_points[1].x = 1.0f;
-		_points[1].y = 0.0f;
-		_points[2].x = 1.0f;
-		_points[2].y = 1.0f;
-		_points[3].x = 0.0f;
-		_points[3].y = 1.0f;
+		_points[0].x = -0.5f;
+		_points[0].y = -0.5f;
+		_points[1].x = 0.5f;
+		_points[1].y = -0.5f;
+		_points[2].x = 0.5f;
+		_points[2].y = 0.5f;
+		_points[3].x = -0.5f;
+		_points[3].y = 0.5f;
 	}
 
 	void PekoModel::GetNext()
@@ -53,27 +53,42 @@ namespace pekomodel {
 		_t += dt;
 
 		MODELVEC3D Ftot = G;
-		MODELVEC3D Tau = MODELVEC3DMake(0.0, 0.0, 0.1);
+		MODELVEC3D Tau = MODELVEC3DMake(0.0, 0.0, 1);
 
-		// dv/dt = F/m -> v = F/m * dt - v-
+		// dv/dt = F/m -> v = F/m * dt + v-
 		MODELVEC3D Vnxt;
 		ScaleVec(dt, &Ftot, &Vnxt);
-		SubtVec(&Vnxt, &_v, &Vnxt);
+		AddVec(&Vnxt, &_v, &Vnxt);
 
 		// dx/dt = v -> x = v * dt - x-
 		MODELVEC3D Xnxt;
 		ScaleVec(dt, &Vnxt, &Xnxt); 
-		SubtVec(&Xnxt, &_x, &Xnxt);
+		AddVec(&Xnxt, &_x, &Xnxt);
 
-		// domega/dt = tau/I -> w = tau/I * dt - w-
+		// domega/dt = tau/I -> w = tau/I * dt + w-
 		MODELVEC3D Wnxt;
 		ScaleVec(dt, &Tau, &Wnxt);
-		SubtVec(&Wnxt, &_omega, &Wnxt);
+		AddVec(&Wnxt, &_omega, &Wnxt);
 
-		// dtheta/dt = omega -> theta = omega * dt - theta-
+		// dtheta/dt = omega -> theta = omega * dt + theta-
 		MODELVEC3D Theta;
 		ScaleVec(dt, &Wnxt, &Theta);
-		SubtVec(&Theta, &_theta, &Theta);
+		AddVec(&Theta, &_theta, &Theta);
+
+		MODELVEC3D dx, domega, dtheta;
+		SubtVec(&Xnxt, &_x, &dx);
+		SubtVec(&Wnxt, &_omega, &domega);
+		SubtVec(&Theta, &_theta, &dtheta);
+
+		for(int i = 0; i < MODEL_POINTS_LEN; i++)
+		{
+			AddVec(&(_points[i]), &dx, &(_points[i]));
+
+			MODELVEC3D cg2pt, cg2ptrot;
+			SubtVec(&(_points[i]), &Xnxt, &cg2pt);
+			RotateAroundZ(&cg2pt, dtheta.z, &cg2pt);
+			AddVec(&Xnxt, &cg2pt, &(_points[i]));
+		}
 
 		_v = Vnxt;
 		_x = Xnxt;

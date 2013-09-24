@@ -16,11 +16,11 @@
 					<RowDefinition Height="1*"/>
 					<RowDefinition Height="1*"/>
 				</Grid.RowDefinitions>
-				<Canvas Grid.Row="1" Width="320" Height="160" Background="White">
+				<Canvas Grid.Row="1" Width="320" Height="320" Background="White">
 					<Path Stroke="Black">
 						<Path.Data>
 							<PathGeometry>
-								<PathFigure x:Name="figure" StartPoint="0,0">
+								<PathFigure x:Name="figure">
 									<PathFigure.Segments>
 										<PolyLineSegment x:Name="lines"/>
 									</PathFigure.Segments>

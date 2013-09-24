@@ -63,11 +63,13 @@ namespace RotationalMotion
 			for (int i = 0; i < sln.points.Count(); i++)
 			{
 				var nonscaled = (Point)sln.points[i];
-				scaled.Add(new Point(nonscaled.X * scale, nonscaled.Y * scale));
+				scaled.Add(new Point(nonscaled.X * scale, 160 - nonscaled.Y * scale));
 			}
 			scaled.Add(scaled.First());
+			figure.StartPoint = scaled.First();
 
 			lines.Points = new PointCollection(scaled);
+			lines.IsSmoothJoin = false;
 		}
 	}
 
