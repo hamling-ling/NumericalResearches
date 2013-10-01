@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EullerBernoulli
@@ -14,7 +15,10 @@ namespace EullerBernoulli
 		readonly double[] m_iniW = new double[TotN];// stores values(at t = 0)
 		readonly double[] m_newW = new double[TotN];// stores values(at t = j+1)
 		readonly double[] m_curW = new double[TotN];// current values (t=j)
-		readonly double[] m_preW = new double[TotN];// old values (t=j-1
+		readonly double[] m_preW = new double[TotN];// old values (t=j-1)
+		readonly double[] m_getW = new double[TotN];// values to show
+		readonly ReaderWriterLock m_lock = new ReaderWriterLock();
+
 		const double lambda = -0.001;
 		const int LoopNum = 10000;
 
@@ -54,7 +58,7 @@ namespace EullerBernoulli
 			newW[TotN - 3] = m_iniW[TotN - 3];
 		}
 
-		public void SetInitialConditions()
+		void SetInitialConditions()
 		{
 			m_iniW[0] = -1.0;
 			m_iniW[1] = -0.5;
@@ -95,7 +99,21 @@ namespace EullerBernoulli
 				curW = newW;
 				newW = temp;
 				Array.Clear(newW, 0, newW.Length);
+
+				m_lock.AcquireWriterLock(Timeout.Infinite);
+				Array.Copy(m_curW, m_getW, m_getW.Length);
+				m_lock.ReleaseWriterLock();
 			}
+		}
+
+		public double[] GetW()
+		{
+			double[] ret = new double[TotN];
+			m_lock.AcquireReaderLock(Timeout.Infinite);
+			Array.Copy(m_curW, ret, ret.Length);
+			m_lock.ReleaseReaderLock();
+
+			return ret;
 		}
 
 		void PrintArray(double[] arr)
