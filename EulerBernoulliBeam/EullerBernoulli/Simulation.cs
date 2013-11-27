@@ -40,8 +40,6 @@ namespace EullerBernoulli
 			return lambda * (
 				curW[i + 2] - 4.0 * curW[i + 1] + 6.0 * curW[i] - 4.0 * curW[i - 1] + curW[i - 2]
 			) + 2.0 * curW[i] - preW[i];
-			//return lambda * curW[i + 2] - 4.0 * lambda * curW[i + 1] + (2.0 + 6.0 * lambda) * curW[i]
-			//	- 4.0 * lambda * curW[i - 1] + lambda * curW[i - 2] - preW[i];
 		}
 
 		void SetLeftBound(double[] newW, double[] curW)
@@ -68,8 +66,6 @@ namespace EullerBernoulli
 			m_iniW[TotN - 1] = -1.0;
 			m_iniW[TotN - 2] = -0.5;
 			m_iniW[TotN - 3] = 0.0;
-			//for (int i = 0; i < TotN; i++)
-			//	m_iniW[i] = 0.01;
 
 			Array.Copy(m_iniW, m_preW, m_preW.Length);
 			Array.Copy(m_iniW, m_curW, m_curW.Length);
