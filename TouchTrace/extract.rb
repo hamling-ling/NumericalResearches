@@ -58,9 +58,18 @@ open(filename) do |file|
     minT=data[0].t
     data.each {|point|
       point.t -= minT
-      puts "#{point.n} #{point.t} #{point.x} #{point.y}"
-      
+      #puts "#{point.n} #{point.t} #{point.x} #{point.y}"     
     }
   }
+end
 
+counter = 0;
+dataset.each do |data|
+  filename = counter.to_s + ".dat"
+  open(filename,"w"){|file|
+    data.each do |point|
+      file.write("#{point.t},#{point.x},#{point.y}\n")
+    end
+  }
+  counter+=1
 end
