@@ -11,6 +11,38 @@ namespace osakanamodel
 {
 	static const MODELFLOAT TWO_M_PI = 2.0 * M_PI;
 
+    MODELPOINT MODELPOINTMake(MODELFLOAT x, MODELFLOAT y)
+    {
+        MODELPOINT p = {x,y};
+        return p;
+    }
+    
+    MODELPOINT* SubtPoint(const MODELPOINT* a, const MODELPOINT* b, MODELPOINT* c)
+    {
+        c->x = a->x - b->x;
+        c->y = a->y - b->y;
+        
+        return c;
+    }
+    
+    MODELFLOAT AngleBetween(const MODELPOINT* a, const MODELPOINT* b)
+    {
+        MODELFLOAT dot = DotProduct(a, b);
+        MODELFLOAT cross = CrossProduct(a, b);
+        
+        return atan2f(cross, dot);
+    }
+    
+    MODELFLOAT DotProduct(const MODELPOINT* a, const MODELPOINT* b)
+    {
+        return a->x * b->x + a->y * b->y;
+    }
+    
+    MODELFLOAT CrossProduct(const MODELPOINT* a, const MODELPOINT* b)
+    {
+        return a->x * b->y - a->y * b->x;
+    }
+    
 	MODELVEC3D MODELVEC3DMake(MODELFLOAT x, MODELFLOAT y, MODELFLOAT z)
 	{
 		MODELVEC3D vec3d;

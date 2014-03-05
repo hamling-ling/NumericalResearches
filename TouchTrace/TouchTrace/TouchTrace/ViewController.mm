@@ -1,8 +1,10 @@
 #import "ViewController.h"
+#import "FluctuationCounter.h"
 
 @interface ViewController ()
 {
 	int _touchNum;
+    FluctuationCounter flu;
 }
 
 @end
@@ -22,28 +24,51 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)output:(NSSet*)touches
+- (BOOL)point:(NSSet*)touches point:(CGPoint*)point
 {
-	UITouch* touch = [touches anyObject];
-	if(touch) {
-		CGPoint location = [touch locationInView:touch.view];
-		NSLog(@"(%02d, %f,\t%f)", _touchNum, location.x, location.y);
-	}
+    UITouch* touch = [touches anyObject];
+	if(!touch)
+        return NO;
+    
+    *point = [touch locationInView:touch.view];
+    
+    return YES;
+}
+
+- (void)output:(CGPoint)location
+{
+    NSLog(@"(%02d, %f,\t%f)", _touchNum, location.x, location.y);
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	[self output:touches];
+    CGPoint point;
+	if([self point:touches point:&point]) {
+        [self output:point];
+        MODELPOINT mpt = MODELPOINTMake(point.x, point.y);
+        flu.Begin(mpt);
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	[self output:touches];
+    CGPoint point;
+	if([self point:touches point:&point]) {
+        [self output:point];
+        
+        MODELPOINT mpt = MODELPOINTMake(point.x, point.y);
+        flu.Move(mpt);
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	[self output:touches];
+    CGPoint point;
+	if([self point:touches point:&point]) {
+        [self output:point];
+        float f =flu.End(MODELPOINTMake(point.x, point.y));
+        NSLog(@"fluctuation=%f", f);
+    }
 	_touchNum++;
 }
 

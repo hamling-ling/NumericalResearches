@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6772756918C72B5800AD7006 /* FluctuationCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6772756718C72B5800AD7006 /* FluctuationCounter.cpp */; };
 		6772756C18C72BF100AD7006 /* modeltool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6772756A18C72BF100AD7006 /* modeltool.cpp */; };
+		C26B16C818C781FA008BCBB7 /* FluctuationCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6772756718C72B5800AD7006 /* FluctuationCounter.cpp */; };
+		C26B16C918C78203008BCBB7 /* modeltool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6772756A18C72BF100AD7006 /* modeltool.cpp */; };
 		C2FBFA9E18C635190038813A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FBFA9D18C635190038813A /* Foundation.framework */; };
 		C2FBFAA018C635190038813A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FBFA9F18C635190038813A /* CoreGraphics.framework */; };
 		C2FBFAA218C635190038813A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FBFAA118C635190038813A /* UIKit.framework */; };
@@ -23,7 +25,7 @@
 		C2FBFAC118C635190038813A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FBFA9D18C635190038813A /* Foundation.framework */; };
 		C2FBFAC218C635190038813A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FBFAA118C635190038813A /* UIKit.framework */; };
 		C2FBFACA18C635190038813A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2FBFAC818C635190038813A /* InfoPlist.strings */; };
-		C2FBFACC18C635190038813A /* TouchTraceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FBFACB18C635190038813A /* TouchTraceTests.m */; };
+		C2FBFACC18C635190038813A /* TouchTraceTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = C2FBFACB18C635190038813A /* TouchTraceTests.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +63,7 @@
 		C2FBFABF18C635190038813A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C2FBFAC718C635190038813A /* TouchTraceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TouchTraceTests-Info.plist"; sourceTree = "<group>"; };
 		C2FBFAC918C635190038813A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C2FBFACB18C635190038813A /* TouchTraceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchTraceTests.m; sourceTree = "<group>"; };
+		C2FBFACB18C635190038813A /* TouchTraceTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TouchTraceTests.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +154,7 @@
 		C2FBFAC518C635190038813A /* TouchTraceTests */ = {
 			isa = PBXGroup;
 			children = (
-				C2FBFACB18C635190038813A /* TouchTraceTests.m */,
+				C2FBFACB18C635190038813A /* TouchTraceTests.mm */,
 				C2FBFAC618C635190038813A /* Supporting Files */,
 			);
 			path = TouchTraceTests;
@@ -277,7 +279,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2FBFACC18C635190038813A /* TouchTraceTests.m in Sources */,
+				C26B16C918C78203008BCBB7 /* modeltool.cpp in Sources */,
+				C2FBFACC18C635190038813A /* TouchTraceTests.mm in Sources */,
+				C26B16C818C781FA008BCBB7 /* FluctuationCounter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,12 +19,14 @@ public:
 	FluctuationCounter();
 	~FluctuationCounter();
 	
-	void Input(const MODELVEC3D& vec);
-	MODELFLOAT Fluctuation();
+    void Begin(const MODELPOINT& point);
+    void Move(const MODELPOINT& point);
+	MODELFLOAT End(const MODELPOINT& point);
 	
 private:
-	MODELVEC3D _oldVec;
-	MODELVEC3D _newVec;
+	MODELPOINT _oldPoint;
+	MODELPOINT _newPoint;
+    const MODELPOINT kStdVec;
 };
 
 #endif /* defined(__TouchTrace__FluctuationCounter__) */

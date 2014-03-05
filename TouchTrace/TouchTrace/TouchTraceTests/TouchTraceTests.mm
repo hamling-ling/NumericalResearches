@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "FluctuationCounter.h"
 
 @interface TouchTraceTests : XCTestCase
 
@@ -28,7 +29,16 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    FluctuationCounter flu;
+    MODELPOINT pt = {0.0f};
+
+    flu.Begin(pt);
+    pt = MODELPOINTMake(0.0, 1);
+    flu.Move(pt);
+    pt = MODELPOINTMake(0.0, 2);
+    flu.Move(pt);
+    pt = MODELPOINTMake(1.0, 1);
+    float f = flu.End(pt);
 }
 
 @end

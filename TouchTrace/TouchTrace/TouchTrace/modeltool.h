@@ -22,6 +22,12 @@ namespace osakanamodel {
 	static const MODELVEC3D YAXIS = {0.0, 1.0, 0.0};
 	static const MODELVEC3D ZAXIS = {0.0, 0.0, 1.0};
 
+    MODELPOINT MODELPOINTMake(MODELFLOAT x, MODELFLOAT y);
+    MODELPOINT* SubtPoint(const MODELPOINT* a, const MODELPOINT* b, MODELPOINT* c);
+    MODELFLOAT AngleBetween(const MODELPOINT* a, const MODELPOINT* b);
+    MODELFLOAT DotProduct(const MODELPOINT* a, const MODELPOINT* b);
+    MODELFLOAT CrossProduct(const MODELPOINT* a, const MODELPOINT* b);
+    
 	MODELVEC3D* NormalForce(const MODELFLOAT mass, const MODELVEC3D *normal, MODELVEC3D *ret);
 	MODELVEC3D* ProjBOntoA(const MODELVEC3D *a, const MODELVEC3D *b, MODELVEC3D *ret);
 	MODELFLOAT Magnitude(const MODELVEC3D *a);

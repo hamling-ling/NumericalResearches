@@ -8,24 +8,43 @@
 
 #include "FluctuationCounter.h"
 
+#ifndef _USE_MATH_DEFINES
+#define _USE_MATH_DEFINES
+#endif
+
+#include <math.h>
+
 FluctuationCounter::FluctuationCounter()
+: kStdVec(MODELPOINTMake(0.0f, 1.0f))
 {
-	_oldVec = {0.0};
-	_newVec = {0.0};
+	_oldPoint = {0.0};
+	_newPoint = {0.0};
 }
 
 FluctuationCounter::~FluctuationCounter()
 {
-	
 }
 
-void FluctuationCounter::Input(const MODELVEC3D& vec)
+void FluctuationCounter::Begin(const MODELPOINT& point)
 {
-	_oldVec = _newVec;
-	_newVec = vec;
+    _oldPoint = MODELPOINTMake(0.0f, 0.0f);
+    _newPoint = point;
 }
 
-MODELFLOAT FluctuationCounter::Fluctuation()
+void FluctuationCounter::Move(const MODELPOINT& point)
 {
-	return 0.0;
+	_oldPoint = _newPoint;
+	_newPoint = point;
+}
+
+MODELFLOAT FluctuationCounter::End(const MODELPOINT& vec)
+{
+	Move(vec);
+
+    MODELPOINT lastVec = {0.0f};
+    SubtPoint(&_newPoint, &_oldPoint, &lastVec);
+    
+    MODELFLOAT angle = AngleBetween(&kStdVec, &lastVec);
+    
+	return -angle/M_PI;
 }
