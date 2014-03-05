@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6772756918C72B5800AD7006 /* FluctuationCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6772756718C72B5800AD7006 /* FluctuationCounter.cpp */; };
+		6772756C18C72BF100AD7006 /* modeltool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6772756A18C72BF100AD7006 /* modeltool.cpp */; };
 		C2FBFA9E18C635190038813A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FBFA9D18C635190038813A /* Foundation.framework */; };
 		C2FBFAA018C635190038813A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FBFA9F18C635190038813A /* CoreGraphics.framework */; };
 		C2FBFAA218C635190038813A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FBFAA118C635190038813A /* UIKit.framework */; };
@@ -15,7 +17,7 @@
 		C2FBFAAE18C635190038813A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FBFAAD18C635190038813A /* AppDelegate.m */; };
 		C2FBFAB118C635190038813A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2FBFAAF18C635190038813A /* Main_iPhone.storyboard */; };
 		C2FBFAB418C635190038813A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2FBFAB218C635190038813A /* Main_iPad.storyboard */; };
-		C2FBFAB718C635190038813A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FBFAB618C635190038813A /* ViewController.m */; };
+		C2FBFAB718C635190038813A /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C2FBFAB618C635190038813A /* ViewController.mm */; };
 		C2FBFAB918C635190038813A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2FBFAB818C635190038813A /* Images.xcassets */; };
 		C2FBFAC018C635190038813A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FBFABF18C635190038813A /* XCTest.framework */; };
 		C2FBFAC118C635190038813A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FBFA9D18C635190038813A /* Foundation.framework */; };
@@ -35,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6772756718C72B5800AD7006 /* FluctuationCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FluctuationCounter.cpp; sourceTree = "<group>"; };
+		6772756818C72B5800AD7006 /* FluctuationCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FluctuationCounter.h; sourceTree = "<group>"; };
+		6772756A18C72BF100AD7006 /* modeltool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = modeltool.cpp; sourceTree = "<group>"; };
+		6772756B18C72BF100AD7006 /* modeltool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modeltool.h; sourceTree = "<group>"; };
+		6772756D18C72C9C00AD7006 /* ModelType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelType.h; sourceTree = "<group>"; };
 		C2FBFA9A18C635190038813A /* TouchTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2FBFA9D18C635190038813A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C2FBFA9F18C635190038813A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,7 +55,7 @@
 		C2FBFAB018C635190038813A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		C2FBFAB318C635190038813A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		C2FBFAB518C635190038813A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C2FBFAB618C635190038813A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C2FBFAB618C635190038813A /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		C2FBFAB818C635190038813A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C2FBFABE18C635190038813A /* TouchTraceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchTraceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2FBFABF18C635190038813A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -114,14 +121,19 @@
 		C2FBFAA318C635190038813A /* TouchTrace */ = {
 			isa = PBXGroup;
 			children = (
+				6772756D18C72C9C00AD7006 /* ModelType.h */,
+				6772756A18C72BF100AD7006 /* modeltool.cpp */,
+				6772756B18C72BF100AD7006 /* modeltool.h */,
 				C2FBFAAC18C635190038813A /* AppDelegate.h */,
 				C2FBFAAD18C635190038813A /* AppDelegate.m */,
 				C2FBFAAF18C635190038813A /* Main_iPhone.storyboard */,
 				C2FBFAB218C635190038813A /* Main_iPad.storyboard */,
 				C2FBFAB518C635190038813A /* ViewController.h */,
-				C2FBFAB618C635190038813A /* ViewController.m */,
+				C2FBFAB618C635190038813A /* ViewController.mm */,
 				C2FBFAB818C635190038813A /* Images.xcassets */,
 				C2FBFAA418C635190038813A /* Supporting Files */,
+				6772756718C72B5800AD7006 /* FluctuationCounter.cpp */,
+				6772756818C72B5800AD7006 /* FluctuationCounter.h */,
 			);
 			path = TouchTrace;
 			sourceTree = "<group>";
@@ -253,9 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2FBFAB718C635190038813A /* ViewController.m in Sources */,
+				C2FBFAB718C635190038813A /* ViewController.mm in Sources */,
+				6772756918C72B5800AD7006 /* FluctuationCounter.cpp in Sources */,
 				C2FBFAAE18C635190038813A /* AppDelegate.m in Sources */,
 				C2FBFAAA18C635190038813A /* main.m in Sources */,
+				6772756C18C72BF100AD7006 /* modeltool.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +488,7 @@
 				C2FBFAD118C635190038813A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2FBFAD218C635190038813A /* Build configuration list for PBXNativeTarget "TouchTraceTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +497,7 @@
 				C2FBFAD418C635190038813A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
