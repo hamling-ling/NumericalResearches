@@ -11,5 +11,7 @@ histplot([0:0.1:6],R);
 title="Frequency distribution of dice face with " +string(repeat)+" roll(s)";
 xtitle(title,"dice face","Frequency");
 
+avg=3.5
+s=sqrt(2.92/repeat);
 x=[0:0.01:6];
 plot(x,(1/(s*sqrt(2*%pi)))*exp(-((avg-x).^2)/(2*s^2)));
