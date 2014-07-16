@@ -11,6 +11,6 @@ Avgs=mean(R,'c');
 histplot([0:0.01:1],Avgs)
 
 avg=1/2;
-s=sqrt(1/(4*sqrt(repeat)));
+s=sqrt((1/4)/repeat);
 x=[0:0.01:1];
 plot(x,(1/(s*sqrt(2*%pi)))*exp(-((avg-x).^2)./(2*s^2)));
