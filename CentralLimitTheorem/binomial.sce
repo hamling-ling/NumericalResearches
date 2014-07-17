@@ -3,13 +3,13 @@ clear;
 // sampling num
 samplenum=50
 // number of repetition
-repeat=10000;
+repeat=1000;
 
 // coin toss
-R=grand(samplenum,repeat,'uin',0,1);
+R=grand(repeat,samplenum,'uin',0,1);
 
 scf(1);
-sums=sum(R,'r');
+sums=sum(R,'c');
 histplot([0:1:samplenum],sums)
 
 n=samplenum;
