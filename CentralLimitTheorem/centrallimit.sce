@@ -1,7 +1,7 @@
 clc;
 
 // number of repetition
-repeat=200;
+repeat=10;
 // draw dice 10 times. and repeat it.
 X=grand(1000,repeat,'uin',1,6);
 // avarage of repetition
