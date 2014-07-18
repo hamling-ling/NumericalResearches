@@ -1,18 +1,20 @@
 clear;
 
 // sampling num
-samplenum=1000
+samplenum=500
 // number of repetition
-repeat=100;
+repeat=1000;
 
-R=grand(samplenum,repeat,'uin',0,1);
+R=grand(repeat,samplenum,'uin',0,1);
 R=1-R*2;
 // avarage of repetition
 X=sum(R,'c');
 
 //plot2d(X);
 
-param=[-50:1:50];
+xmin=-samplenum/10;
+xmax=samplenum/10;
+param=[xmin:1:xmax];
 histplot(param,X)
 
 n=repeat;
