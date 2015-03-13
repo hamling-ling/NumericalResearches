@@ -30,6 +30,7 @@ xtitle(title,"time (sec)","arbitral");
 
 subplot(212);
 plot2d("nl",fs(1:N),power(1:N));
+xtitle("powerspectrum", "frequency(Hz)", "arbitral");
 
 [maxPower,maxIndex] = max(abs(power(1:N)));
 maxFreq=fs(maxIndex);
