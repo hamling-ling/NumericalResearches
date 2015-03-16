@@ -18,7 +18,7 @@ f=sin(2 * %pi * waveFreq * ts);
 // data number of data for fft
 N = sampleNum/2;
 // create freq-axis
-fs = [0:sampleNum] * sampleFreq/sampleNum;
+fs = [0:sampleNum-1] * sampleFreq/sampleNum;
 // fft
 f_fft = fft(f);
 power = f_fft.*conj(f_fft);
