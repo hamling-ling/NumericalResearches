@@ -26,7 +26,7 @@ power = f_fft.*conj(f_fft);
 r=ifft(power);
 taus=[0:W-1] * 1/sampleFreq;
 // normalized square difference
-w=W/2;// number of correlation time slide
+w=W/2;// number of correlation time lag
 x2=x.^2;
 m=zeros(1,w);
 for t=1:w
@@ -48,3 +48,7 @@ xtitle("autocorrelation", "tau(s)", "auto correlation");
 subplot(313);
 plot2d(taus(1:w),nsdf(1:w));
 xtitle("normalized square difference", "tau(s)", "a.u.");
+
+// file output
+dir=pwd();
+csvWrite(nsdf(1:w)', "sinwave_nsdf.csv");
