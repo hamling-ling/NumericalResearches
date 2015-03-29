@@ -43,7 +43,7 @@ void AutoCorrelation::Compute(double* x, double *corr)
 	
 	// ifft
 	fftw_plan plan_ifft = fftw_plan_dft_c2r_1d(kFftSize, _powspec, _ifft, FFTW_ESTIMATE);
-	//fftw_execute(plan_ifft);
+	fftw_execute(plan_ifft);
 	fftw_destroy_plan(plan_ifft);
 
 	memcpy(corr, _ifft, sizeof(double)*kWinSize);
