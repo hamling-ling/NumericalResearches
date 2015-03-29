@@ -16,16 +16,14 @@ namespace osakanaengine {
 	class NsdfPeakDetectMachine
 	{
 	public:
-		NsdfPeakDetectMachine();
+		NsdfPeakDetectMachine(uint32_t maxDataNum);
 		virtual ~NsdfPeakDetectMachine();
 		void SetBellStartedHandler(bellStartedCallback_t callback);
 		void SetBellFinishHandler(bellFinishedCallback_t callback);
-		void PositiveCross();
-		void NegativeCross();
-		void NormalDataInput();
-		void EndOfDataInput();
+		void Input(double x);
 		bool IsFinished();
 		bool IsWalkingOnBell();
+		void GetKeyMaximums(std::vector<NsdfPoint>& out);
 	private:
 		bellStartedCallback_t _bellStartedCallback;
 		bellFinishedCallback_t _bellFinishedCallback;

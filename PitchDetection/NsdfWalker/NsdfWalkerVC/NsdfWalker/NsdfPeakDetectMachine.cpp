@@ -3,10 +3,11 @@
 
 namespace osakanaengine {
 
-	NsdfPeakDetectMachine::NsdfPeakDetectMachine()
+	NsdfPeakDetectMachine::NsdfPeakDetectMachine(uint32_t maxDataNum)
 	{
 		_sm._bellStartCallback = boost::bind(&NsdfPeakDetectMachine::BellStarted, this);
 		_sm._bellFinishCallback = boost::bind(&NsdfPeakDetectMachine::BellFinished, this);
+		_sm.Initialize(maxDataNum);
 		_sm.start();
 	}
 
@@ -24,19 +25,10 @@ namespace osakanaengine {
 		_bellFinishedCallback = callback;
 	}
 
-	void NsdfPeakDetectMachine::PositiveCross()
+	void NsdfPeakDetectMachine::Input(double x)
 	{
-		_sm.process_event(PosCross());
-	}
-
-	void NsdfPeakDetectMachine::NegativeCross()
-	{
-		_sm.process_event(NegCross());
-	}
-
-	void NsdfPeakDetectMachine::NormalDataInput()
-	{
-		_sm.process_event(NomlData());
+		std::cout << "x[" << _sm._context.currentIndex << "]=" << x << std::endl;
+		_sm.Input(x, _sm);
 	}
 
 	bool NsdfPeakDetectMachine::IsFinished()
@@ -45,15 +37,15 @@ namespace osakanaengine {
 		return (Sm1_::kEndStateId == currentState);
 	}
 
+	void NsdfPeakDetectMachine::GetKeyMaximums(std::vector<NsdfPoint>& out)
+	{
+		_sm.GetKeyMaximums(out, _sm);
+	}
+
 	bool NsdfPeakDetectMachine::IsWalkingOnBell()
 	{
 		int currentState = _sm.current_state()[0];
 		return (Sm1_::kWalkingOnBellStateId == currentState);
-	}
-
-	void NsdfPeakDetectMachine::EndOfDataInput()
-	{
-		_sm.process_event(EndOfData());
 	}
 
 	void NsdfPeakDetectMachine::BellStarted()

@@ -4,15 +4,10 @@
 #include <cstdint>
 #include <memory>
 
-namespace osakanaengine {
-	static const double kThreshold = 0.8;
-	static const unsigned int kReservedBellNumber = 64;
+#include "NsdfWalkerDefs.h"
 
-	typedef struct _NsdfPoint {
-		double value;
-		uint32_t index;
-		uint32_t padding;
-	} NsdfPoint;
+namespace osakanaengine {
+
 
 	class NsdfPeakDetectMachine;
 
@@ -45,15 +40,8 @@ namespace osakanaengine {
 		void GetKeyMaximums(std::vector<NsdfPoint>& out);
 
 	private:
-		const uint32_t _maxDataNum;
-		uint32_t _currentIndex;
-		NsdfPoint _lastInput;
-		// collection of key maximum for each bell
-		std::vector<NsdfPoint> _keyMaxs;
-		// max of all bell
-		NsdfPoint _globalKeyMax;
-		// max of current bell
-		NsdfPoint _localKeyMax;
+		// max data number
+		uint32_t _maxDataNum;
 		// state machine
 		std::shared_ptr<NsdfPeakDetectMachine> _sm;
 		// call back handler from state machine event
