@@ -9,46 +9,7 @@
 #include <fstream>
 #include "AutoCorrelation.h"
 
-/*
-#include <cstdio>
-#include <complex.h> // complex.h ÇÕ fftw3.h ÇÊÇËêÊÇ… include Ç∑ÇÈ
-#include <fftw3.h>
-#include <iostream>
-#define _USE_MATH_DEFINES
-#include <math.h>*/
-
-#pragma comment(lib, "libfftw3-3.lib")
-
 using namespace std;
-/*
-void autocorrelation(double(&x)[1024], double(&corr)[1024])
-{
-	static const int	fftSize = 1024;
-	static const int	fftSize2 = fftSize/2;
-
-	fftw_complex* in = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * fftSize);
-	fftw_complex* out = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * fftSize);
-	fftw_complex* in2 = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * fftSize);
-	double* out2 = &(corr[0]);
-
-	fftw_plan plan_fft = fftw_plan_dft_r2c_1d(fftSize, &(x[0]), out, FFTW_ESTIMATE);
-	fftw_execute(plan_fft);
-	fftw_destroy_plan(plan_fft);
-
-	for (int i = 0; i < fftSize; i++) {
-		double powered = out[i][0] * out[i][0] + out[i][1] * out[i][1];
-		in2[i][0] = powered / 1024;
-		in2[i][1] = 0.0f;
-	};
-
-	fftw_plan plan_ifft = fftw_plan_dft_c2r_1d(fftSize, in2, out2, FFTW_ESTIMATE);
-	fftw_execute(plan_ifft);
-	fftw_destroy_plan(plan_ifft);
-
-	fftw_free(in);
-	fftw_free(in2);
-	fftw_free(out);
-}*/
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -79,7 +40,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	file.close();
 
 	double corr[1024] = { 0 };
-	//autocorrelation(data, corr);
 
 	AutoCorrelation autoCorr(1024);
 	autoCorr.Compute(data, corr);
