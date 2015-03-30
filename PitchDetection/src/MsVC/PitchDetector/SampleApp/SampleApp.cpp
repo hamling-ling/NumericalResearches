@@ -50,6 +50,15 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << "detection error" << endl;
 	}
 
+	PitchInfo pitch = { 0 };
+	detector.GetPiatch(pitch);
+
+	cout << "result---" << endl;
+	cout << "freq    :" << pitch.freq << endl;
+	cout << "note    :" << pitch.note << endl;
+	cout << "noteStr :" << pitch.noteStr << endl;
+	cout << "octabe  :" << pitch.octave << endl;
+
 	return 0;
 }
 
