@@ -7,8 +7,8 @@ clear all;
 sampleNum = 1024;   // sample number
 
 infile='piano_A.wav';
-[dat, header] = loadwave(infile);
-sampleFreq = y(3);// sampling rate
+[dat, info] = loadwave(infile);
+sampleFreq = info(3);// sampling rate
 //////////////////////////////////////////////////////////////////////
 // main
 //////////////////////////////////////////////////////////////////////
