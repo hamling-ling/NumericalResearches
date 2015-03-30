@@ -51,7 +51,7 @@ namespace osakanaengine {
 		// States
 		struct SmState : msmf::state < >
 		{
-			virtual void Input(double x, msm::back::state_machine<Sm1_>& sm) {
+			virtual void Input(float x, msm::back::state_machine<Sm1_>& sm) {
 				MachineContext& context = sm._context;
 
 				context.lastInput.value = x;
@@ -67,7 +67,7 @@ namespace osakanaengine {
 
 		struct SearchingBell : SmState
 		{
-			virtual void Input(double x, msm::back::state_machine<Sm1_>& sm) {
+			virtual void Input(float x, msm::back::state_machine<Sm1_>& sm) {
 				MachineContext& context = sm._context;
 
 				if (context.lastInput.value < 0 && 0 <= x) {
@@ -83,7 +83,7 @@ namespace osakanaengine {
 
 		struct WalkingOnBell : SmState
 		{
-			virtual void Input(double x, msm::back::state_machine<Sm1_>& sm) {
+			virtual void Input(float x, msm::back::state_machine<Sm1_>& sm) {
 				MachineContext& context = sm._context;
 
 				if (0 <= context.lastInput.value && x < 0) {
@@ -111,7 +111,7 @@ namespace osakanaengine {
 
 		struct End : SmState
 		{
-			virtual void Input(double x, msm::back::state_machine<Sm1_>& sm) {
+			virtual void Input(float x, msm::back::state_machine<Sm1_>& sm) {
 				// do nothing
 			}
 		};
@@ -135,7 +135,7 @@ namespace osakanaengine {
 		/**
 		* handles input
 		*/
-		void Input(double x, msm::back::state_machine<Sm1_>& sm) {
+		void Input(float x, msm::back::state_machine<Sm1_>& sm) {
 			int stateId = sm.current_state()[0];
 			SmState* state = static_cast<Sm1_::SmState*>(sm.get_state_by_id(stateId));
 

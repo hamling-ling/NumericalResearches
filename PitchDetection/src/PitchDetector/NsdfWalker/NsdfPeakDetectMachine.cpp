@@ -24,7 +24,7 @@ namespace osakanaengine {
 		_bellFinishedCallback = callback;
 	}
 
-	void NsdfPeakDetectMachine::Input(double x)
+	void NsdfPeakDetectMachine::Input(float x)
 	{
 		std::cout << "x[" << _sm._context.currentIndex << "]=" << x << std::endl;
 		_sm.Input(x, _sm);

@@ -7,14 +7,14 @@ class AutoCorrelation
 public:
 	AutoCorrelation(int windowSize);
 	virtual ~AutoCorrelation();
-	void Compute(double* x, double *corr);
-	double WindowSize();
+	void Compute(float* x, float *corr);
+	int WindowSize();
 private:
 	const int kWinSize;
 	const int kFftSize;
-	double* _src;
-	fftw_complex* _fft;
-	fftw_complex* _powspec;
-	double* _ifft;
+	float* _src;
+	fftwf_complex* _fft;
+	fftwf_complex* _powspec;
+	float* _ifft;
 };
 

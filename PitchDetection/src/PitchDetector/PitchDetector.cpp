@@ -8,7 +8,7 @@
 using namespace std;
 using namespace osakanaengine;
 
-static const double kNoteConst = log10(pow(2.0, 1.0 / 12.0));
+static const float kNoteConst = log10(pow(2.0f, 1.0f / 12.0f));
 const char* kNoteStrings[] {
 	"A", "Bes", "B", "C",
 		"Cis", "D", "Dis", "E",
@@ -38,22 +38,22 @@ bool PitchDetector::Initialize()
 	}
 
 	_corr = std::make_shared<AutoCorrelation>(_samplingSize);
-	_r = new double[_samplingSize];
+	_r = new float[_samplingSize];
 	if (_r == NULL) {
 		return false;
 	}
 
-	_m = new double[_samplingSize];
+	_m = new float[_samplingSize];
 	if (_m == NULL) {
 		return false;
 	}
 
-	_x2 = new double[_samplingSize];
+	_x2 = new float[_samplingSize];
 	if (_x2 == NULL) {
 		return false;
 	}
 
-	_nsdf = new double[_samplingSize];
+	_nsdf = new float[_samplingSize];
 	if (_nsdf == NULL) {
 		return false;
 	}
@@ -61,7 +61,7 @@ bool PitchDetector::Initialize()
 	return true;
 }
 
-bool PitchDetector::Detect(double* x)
+bool PitchDetector::Detect(float* x)
 {
 	if (!_corr) {
 		return false;
@@ -83,7 +83,7 @@ void PitchDetector::GetPiatch(PitchInfo& pitch)
 	pitch = _pitch;
 }
 
-bool PitchDetector::ComputeNsdf(double* x)
+bool PitchDetector::ComputeNsdf(float* x)
 {
 	const int N = _samplingSize;
 
@@ -100,7 +100,7 @@ bool PitchDetector::ComputeNsdf(double* x)
 	}
 
 	// m(t)
-	memset(_m, 0, sizeof(double)* N);
+	memset(_m, 0, sizeof(float)* N);
 	for (int t = 0; t < N; t++) {
 		for (int j = 0; j < N - t; j++) {
 			_m[t] = _m[t] + _x2[j] + _x2[j + t];
@@ -109,7 +109,7 @@ bool PitchDetector::ComputeNsdf(double* x)
 
 	// nsdf
 	for (int t = 0; t < N; t++) {
-		_nsdf[t] = 2.0 * _r[t] / _m[t];
+		_nsdf[t] = 2.0f * _r[t] / _m[t];
 
 		// debug
 		//std::cout << "nsdf[" << t << "]=" << _nsdf[t] << endl;
@@ -136,10 +136,10 @@ int PitchDetector::AnalyzeNsdf()
 		return -1;
 	}
 
-	double freq = _samplingRate/keyMaxs[0].index;
+	float freq = _samplingRate/static_cast<float>(keyMaxs[0].index);
 
-	double dnote = log10(freq / 27.5) / kNoteConst;
-	int inote = static_cast<int>(0.5 + dnote);
+	float dnote = log10(freq / 27.5f) / kNoteConst;
+	int inote = static_cast<int>(0.5f + dnote);
 
 	_pitch.note = static_cast<Note>(inote);
 	_pitch.noteStr = kNoteStrings[inote % 12];

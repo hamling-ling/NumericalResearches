@@ -2,11 +2,10 @@
 
 #include <cstdint>
 
-static const double kThreshold = 0.8;
+static const float kThreshold = 0.8f;
 static const unsigned int kReservedBellNumber = 64;
 
 typedef struct _NsdfPoint {
-	double value;
+	float value;
 	uint32_t index;
-	uint32_t padding;
 } NsdfPoint;

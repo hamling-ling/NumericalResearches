@@ -16,7 +16,7 @@ namespace osakanaengine {
 	{
 	}
 
-	void NsdfWalker::Input(double x)
+	void NsdfWalker::Input(float x)
 	{
 		_sm->Input(x);
 	}

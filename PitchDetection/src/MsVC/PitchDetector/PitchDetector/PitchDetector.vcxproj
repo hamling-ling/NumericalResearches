@@ -55,7 +55,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libfftw3-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libfftw3f-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -77,7 +77,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libfftw3-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libfftw3f-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

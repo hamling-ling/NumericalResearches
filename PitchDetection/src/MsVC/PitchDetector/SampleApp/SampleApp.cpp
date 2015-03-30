@@ -26,20 +26,20 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	string line;
 	const int dataNum = 64;
-	double data[dataNum] = { 0 };
+	float data[dataNum] = { 0 };
 	int index = 0;
 	while (getline(file, line) && index < dataNum) {
 		istringstream iss(line);
-		double x;
+		float x;
 		if (!(iss >> x)) {
-			cout << "can't convert " << line << " to double" << endl;
+			cout << "can't convert " << line << " to float" << endl;
 			return 1;
 		}
 		data[index++] = x;
 	}
 	file.close();
 
-	double corr[dataNum] = { 0 };
+	float corr[dataNum] = { 0 };
 
 	PitchDetector detector(8000, dataNum);
 	if (!detector.Initialize()) {

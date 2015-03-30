@@ -31,7 +31,7 @@ namespace osakanaengine {
 		/**
 		 * handles input
 		 */
-		void Input(double x);
+		void Input(float x);
 
 		/**
 		 * returns key maximum. key maximums smaller than

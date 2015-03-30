@@ -20,7 +20,7 @@ namespace osakanaengine {
 		virtual ~NsdfPeakDetectMachine();
 		void SetBellStartedHandler(bellStartedCallback_t callback);
 		void SetBellFinishHandler(bellFinishedCallback_t callback);
-		void Input(double x);
+		void Input(float x);
 		bool IsFinished();
 		bool IsWalkingOnBell();
 		void GetKeyMaximums(std::vector<NsdfPoint>& out);
