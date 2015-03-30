@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 static const double kThreshold = 0.8;
 static const unsigned int kReservedBellNumber = 64;
 

@@ -2,8 +2,6 @@
 
 #include <fftw3.h>
 
-#pragma comment(lib, "libfftw3-3.lib")
-
 class AutoCorrelation
 {
 public:

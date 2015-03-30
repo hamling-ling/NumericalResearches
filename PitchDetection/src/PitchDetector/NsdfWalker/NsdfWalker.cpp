@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "NsdfWalker.h"
 #include <cassert>
 #include "NsdfPeakDetectMachine.h"

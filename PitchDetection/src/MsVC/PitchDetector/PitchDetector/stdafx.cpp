@@ -1,4 +1,4 @@
-// stdafx.cpp : 標準インクルード NsdfCompute.pch のみを
+// stdafx.cpp : 標準インクルード PitchDetector.pch のみを
 // 含むソース ファイルは、プリコンパイル済みヘッダーになります。
 // stdafx.obj にはプリコンパイル済み型情報が含まれます。
 

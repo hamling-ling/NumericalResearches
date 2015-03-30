@@ -11,20 +11,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DE80F10C-B819-4ECC-909C-532EA3B92831}</ProjectGuid>
+    <ProjectGuid>{53E76C71-013A-4AE2-87FE-FDACEA2311C8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>NsdkWalker</RootNamespace>
-    <ProjectName>NsdfWalker</ProjectName>
+    <RootNamespace>PitchDetector</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -40,26 +39,24 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\usr\local\boost_1_57_0;C:\usr\local\boost_1_57_0;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\usr\local\boost_1_57_0;..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\usr\local\boost_1_57_0\stage\lib;C:\\boost_1_57_0\stage\lib;</AdditionalLibraryDirectories>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libfftw3-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -68,37 +65,37 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\usr\local\boost_1_57_0;C:\src\boost_1_57_0;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\usr\local\boost_1_57_0;..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\usr\local\boost_1_57_0\stage\lib;C:\src\boost_1_57_0\stage\lib;</AdditionalLibraryDirectories>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libfftw3-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="NsdfPeakDetectMachine.h" />
-    <ClInclude Include="NsdfWalker.h" />
-    <ClInclude Include="NsdfWalkerDefs.h" />
-    <ClInclude Include="PeakDetectMsm.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\..\..\PitchDetector\NsdfCompute\AutoCorrelation.h" />
+    <ClInclude Include="..\..\..\PitchDetector\NsdfWalker\NsdfPeakDetectMachine.h" />
+    <ClInclude Include="..\..\..\PitchDetector\NsdfWalker\NsdfWalker.h" />
+    <ClInclude Include="..\..\..\PitchDetector\NsdfWalker\NsdfWalkerDefs.h" />
+    <ClInclude Include="..\..\..\PitchDetector\NsdfWalker\PeakDetectMsm.h" />
+    <ClInclude Include="..\..\..\PitchDetector\PitchDetector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NsdfPeakDetectMachine.cpp" />
-    <ClCompile Include="NsdfWalkerApp.cpp" />
-    <ClCompile Include="NsdfWalker.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="..\..\..\PitchDetector\NsdfCompute\AutoCorrelation.cpp" />
+    <ClCompile Include="..\..\..\PitchDetector\NsdfWalker\NsdfPeakDetectMachine.cpp" />
+    <ClCompile Include="..\..\..\PitchDetector\NsdfWalker\NsdfWalker.cpp" />
+    <ClCompile Include="..\..\..\PitchDetector\PitchDetector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

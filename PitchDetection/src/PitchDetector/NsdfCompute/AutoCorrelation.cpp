@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "AutoCorrelation.h"
 #include <fftw3.h>
 #include <memory>

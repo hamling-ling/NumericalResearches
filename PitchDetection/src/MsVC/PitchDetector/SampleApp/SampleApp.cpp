@@ -1,16 +1,14 @@
-// NsdkWalker.cpp : コンソール アプリケーションのエントリ ポイントを定義します。
+// SampleApp.cpp : コンソール アプリケーションのエントリ ポイントを定義します。
 //
 
 #include "stdafx.h"
-#include <iostream>
-#include <fstream>
 #include <string>
 #include <sstream>
-
-#include "NsdfWalker.h"
+#include <iostream>
+#include <fstream>
+#include "PitchDetector.h"
 
 using namespace std;
-using namespace osakanaengine;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -25,25 +23,27 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 1;
 	}
 
-	NsdfWalker _walker(512);
-
 	string line;
-	while (getline(file, line)) {
+	const int dataNum = 1024;
+	double data[dataNum] = { 0 };
+	int index = 0;
+	while (getline(file, line) && index < dataNum) {
 		istringstream iss(line);
 		double x;
 		if (!(iss >> x)) {
 			cout << "can't convert " << line << " to double" << endl;
 			return 1;
 		}
-		_walker.Input(x);
+		data[index++] = x;
 	}
+	file.close();
 
-	vector<NsdfPoint> keyMaxs;
-	_walker.GetKeyMaximums(keyMaxs);
+	double corr[1024] = { 0 };
 
-	cout << "resulting Keymaximums:" << endl;
-	for (auto keyMax : keyMaxs) {
-		cout << "x[" << keyMax.index << "] = " << keyMax.value << endl;
+	PitchDetector detector(8000, 1024);
+	detector.Detect(data);
+	for (int i = 0; i < 10; i++) {
+		cout << "r[" << i << "] = " << corr[i] << endl;
 	}
 
 	return 0;
