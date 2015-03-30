@@ -10,6 +10,7 @@
 
 using namespace std;
 
+// give ..\..\..\..\file_orig.csv in command line parameter
 int _tmain(int argc, _TCHAR* argv[])
 {
 	if (argc < 1) {
@@ -24,7 +25,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 
 	string line;
-	const int dataNum = 1024;
+	const int dataNum = 64;
 	double data[dataNum] = { 0 };
 	int index = 0;
 	while (getline(file, line) && index < dataNum) {
@@ -38,12 +39,15 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	file.close();
 
-	double corr[1024] = { 0 };
+	double corr[dataNum] = { 0 };
 
-	PitchDetector detector(8000, 1024);
-	detector.Detect(data);
-	for (int i = 0; i < 10; i++) {
-		cout << "r[" << i << "] = " << corr[i] << endl;
+	PitchDetector detector(8000, dataNum);
+	if (!detector.Initialize()) {
+		cout << "initialization error" << endl;
+	}
+
+	if (!detector.Detect(data)) {
+		cout << "detection error" << endl;
 	}
 
 	return 0;
