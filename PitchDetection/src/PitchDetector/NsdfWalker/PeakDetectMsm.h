@@ -164,7 +164,7 @@ namespace osakanaengine {
 			template <class Event, class Fsm, class SourceState, class TargetState>
 			void operator()(Event const&, Fsm& fsm, SourceState&, TargetState&) const
 			{
-				Sm1* sm1 = &fsm;
+				Sm1_* sm1 = &fsm;
 				if (sm1->_bellStartCallback) {
 					sm1->_bellStartCallback();
 				}
@@ -175,7 +175,7 @@ namespace osakanaengine {
 			template <class Event, class Fsm, class SourceState, class TargetState>
 			void operator()(Event const&, Fsm& fsm, SourceState&, TargetState&) const
 			{
-				Sm1* sm1 = &fsm;
+				Sm1_* sm1 = &fsm;
 				MachineContext& context = sm1->_context;
 
 				context.keyMaxs.push_back(context.localKeyMax);

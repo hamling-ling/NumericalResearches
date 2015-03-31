@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C2A133331AC9AE35000FE1DE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A133321AC9AE35000FE1DE /* main.cpp */; };
+		67DA0C101ACA448700A812C2 /* SampleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 67DA0C0F1ACA448700A812C2 /* SampleApp.cpp */; };
 		C2A133821AC9B346000FE1DE /* libPitchDetectorLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A133621AC9AEC1000FE1DE /* libPitchDetectorLib.a */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +48,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		67DA0C0F1ACA448700A812C2 /* SampleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SampleApp.cpp; path = ../../../MsVC/PitchDetector/SampleApp/SampleApp.cpp; sourceTree = "<group>"; };
 		C2A1332F1AC9AE35000FE1DE /* PitchDetector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PitchDetector; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2A133321AC9AE35000FE1DE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PitchDetectorLib.xcodeproj; path = PitchDetectorLib/PitchDetectorLib.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +85,7 @@
 		C2A133311AC9AE35000FE1DE /* PitchDetector */ = {
 			isa = PBXGroup;
 			children = (
-				C2A133321AC9AE35000FE1DE /* main.cpp */,
+				67DA0C0F1ACA448700A812C2 /* SampleApp.cpp */,
 			);
 			path = PitchDetector;
 			sourceTree = "<group>";
@@ -179,7 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2A133331AC9AE35000FE1DE /* main.cpp in Sources */,
+				67DA0C101ACA448700A812C2 /* SampleApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,11 +227,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../PitchDetector,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ../../PitchDetector;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -263,16 +268,25 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../PitchDetector,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ../../PitchDetector;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
 		C2A133371AC9AE35000FE1DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -281,6 +295,10 @@
 		C2A133381AC9AE35000FE1DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -305,6 +323,7 @@
 				C2A133381AC9AE35000FE1DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

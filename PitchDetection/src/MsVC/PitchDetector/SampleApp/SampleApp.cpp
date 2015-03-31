@@ -1,7 +1,11 @@
 // SampleApp.cpp : コンソール アプリケーションのエントリ ポイントを定義します。
 //
-
+#if defined (__WIN32__)
 #include "stdafx.h"
+#else
+#define _TCHAR char
+#endif
+
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -10,8 +14,9 @@
 
 using namespace std;
 
-// give ..\..\..\..\file_orig.csv in command line parameter
-int _tmain(int argc, _TCHAR* argv[])
+// give ..\..\..\..\file_orig.csv in command line parameter for VS
+// $PROJECT_DIR/../../../file_orig.csv for xcode
+int main(int argc, _TCHAR* argv[])
 {
 	if (argc < 1) {
 		wcout << "need to specify csv file in command-line paremeter" << endl;
@@ -38,8 +43,6 @@ int _tmain(int argc, _TCHAR* argv[])
 		data[index++] = x;
 	}
 	file.close();
-
-	float corr[dataNum] = { 0 };
 
 	PitchDetector detector(8000, dataNum);
 	if (!detector.Initialize()) {

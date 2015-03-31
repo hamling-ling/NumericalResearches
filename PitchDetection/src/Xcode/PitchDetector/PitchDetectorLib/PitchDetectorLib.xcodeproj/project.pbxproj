@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67DA0C0E1ACA406A00A812C2 /* libfftw3f.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA0C0C1ACA3F6F00A812C2 /* libfftw3f.a */; };
 		C2A1334E1AC9AEC0000FE1DE /* libPitchDetectorLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A133421AC9AEBF000FE1DE /* libPitchDetectorLib.a */; };
 		C2A133721AC9AEEE000FE1DE /* AutoCorrelation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A133671AC9AEEE000FE1DE /* AutoCorrelation.cpp */; };
 		C2A133731AC9AEEE000FE1DE /* AutoCorrelation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A133671AC9AEEE000FE1DE /* AutoCorrelation.cpp */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67DA0C0C1ACA3F6F00A812C2 /* libfftw3f.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfftw3f.a; path = ../../../../../../../../../../usr/local/lib/libfftw3f.a; sourceTree = "<group>"; };
 		C2A133421AC9AEBF000FE1DE /* libPitchDetectorLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPitchDetectorLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A1334D1AC9AEC0000FE1DE /* PitchDetectorLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchDetectorLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A133531AC9AEC0000FE1DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67DA0C0E1ACA406A00A812C2 /* libfftw3f.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +75,7 @@
 		C2A133391AC9AEBF000FE1DE = {
 			isa = PBXGroup;
 			children = (
+				67DA0C0C1ACA3F6F00A812C2 /* libfftw3f.a */,
 				C2A133441AC9AEBF000FE1DE /* PitchDetectorLib */,
 				C2A133511AC9AEC0000FE1DE /* PitchDetectorLibTests */,
 				C2A133431AC9AEBF000FE1DE /* Products */,
@@ -315,6 +319,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/local/include,
+					"~/src/boost/include",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -356,6 +361,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/local/include,
+					"~/src/boost/include",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -368,6 +374,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -376,6 +388,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -431,6 +449,7 @@
 				C2A133581AC9AEC0000FE1DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2A133591AC9AEC0000FE1DE /* Build configuration list for PBXNativeTarget "PitchDetectorLibTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +458,7 @@
 				C2A1335B1AC9AEC0000FE1DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
