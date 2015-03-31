@@ -1,8 +1,8 @@
 // SampleApp.cpp : コンソール アプリケーションのエントリ ポイントを定義します。
 //
-#if defined (__WIN32__)
 #include "stdafx.h"
-#else
+
+#if !defined (__WIN32__)
 #define _TCHAR char
 #endif
 
