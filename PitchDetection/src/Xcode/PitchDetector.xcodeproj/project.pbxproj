@@ -1,0 +1,332 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C2A133821AC9B346000FE1DE /* libPitchDetectorLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A133621AC9AEC1000FE1DE /* libPitchDetectorLib.a */; };
+		C2B929701ACB018500C13047 /* SampleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B9296F1ACB018500C13047 /* SampleApp.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C2A133611AC9AEC1000FE1DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C2A133421AC9AEBF000FE1DE;
+			remoteInfo = PitchDetectorLib;
+		};
+		C2A133631AC9AEC1000FE1DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C2A1334D1AC9AEC0000FE1DE;
+			remoteInfo = PitchDetectorLibTests;
+		};
+		C2A133801AC9B33A000FE1DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C2A133411AC9AEBF000FE1DE;
+			remoteInfo = PitchDetectorLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C2A1332D1AC9AE35000FE1DE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C2A1332F1AC9AE35000FE1DE /* PitchDetector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PitchDetector; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PitchDetectorLib.xcodeproj; path = PitchDetectorLib/PitchDetectorLib.xcodeproj; sourceTree = "<group>"; };
+		C2B9296F1ACB018500C13047 /* SampleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SampleApp.cpp; path = ../MsVC/SampleApp/SampleApp.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C2A1332C1AC9AE35000FE1DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2A133821AC9B346000FE1DE /* libPitchDetectorLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C2A133261AC9AE34000FE1DE = {
+			isa = PBXGroup;
+			children = (
+				C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */,
+				C2A133311AC9AE35000FE1DE /* SampleApp */,
+				C2A133301AC9AE35000FE1DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C2A133301AC9AE35000FE1DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2A1332F1AC9AE35000FE1DE /* PitchDetector */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C2A133311AC9AE35000FE1DE /* SampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				C2B9296F1ACB018500C13047 /* SampleApp.cpp */,
+			);
+			name = SampleApp;
+			path = PitchDetector;
+			sourceTree = "<group>";
+		};
+		C2A1335D1AC9AEC0000FE1DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2A133621AC9AEC1000FE1DE /* libPitchDetectorLib.a */,
+				C2A133641AC9AEC1000FE1DE /* PitchDetectorLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C2A1332E1AC9AE35000FE1DE /* PitchDetector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2A133361AC9AE35000FE1DE /* Build configuration list for PBXNativeTarget "PitchDetector" */;
+			buildPhases = (
+				C2A1332B1AC9AE35000FE1DE /* Sources */,
+				C2A1332C1AC9AE35000FE1DE /* Frameworks */,
+				C2A1332D1AC9AE35000FE1DE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C2A133811AC9B33A000FE1DE /* PBXTargetDependency */,
+			);
+			name = PitchDetector;
+			productName = PitchDetector;
+			productReference = C2A1332F1AC9AE35000FE1DE /* PitchDetector */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C2A133271AC9AE34000FE1DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Nobuhiro Kuroiwa";
+				TargetAttributes = {
+					C2A1332E1AC9AE35000FE1DE = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = C2A1332A1AC9AE34000FE1DE /* Build configuration list for PBXProject "PitchDetector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C2A133261AC9AE34000FE1DE;
+			productRefGroup = C2A133301AC9AE35000FE1DE /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C2A1335D1AC9AEC0000FE1DE /* Products */;
+					ProjectRef = C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				C2A1332E1AC9AE35000FE1DE /* PitchDetector */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C2A133621AC9AEC1000FE1DE /* libPitchDetectorLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPitchDetectorLib.a;
+			remoteRef = C2A133611AC9AEC1000FE1DE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C2A133641AC9AEC1000FE1DE /* PitchDetectorLibTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PitchDetectorLibTests.xctest;
+			remoteRef = C2A133631AC9AEC1000FE1DE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C2A1332B1AC9AE35000FE1DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2B929701ACB018500C13047 /* SampleApp.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C2A133811AC9B33A000FE1DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PitchDetectorLib;
+			targetProxy = C2A133801AC9B33A000FE1DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C2A133341AC9AE35000FE1DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../PitchDetector,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		C2A133351AC9AE35000FE1DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../PitchDetector,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		C2A133371AC9AE35000FE1DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		C2A133381AC9AE35000FE1DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C2A1332A1AC9AE34000FE1DE /* Build configuration list for PBXProject "PitchDetector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2A133341AC9AE35000FE1DE /* Debug */,
+				C2A133351AC9AE35000FE1DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2A133361AC9AE35000FE1DE /* Build configuration list for PBXNativeTarget "PitchDetector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2A133371AC9AE35000FE1DE /* Debug */,
+				C2A133381AC9AE35000FE1DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C2A133271AC9AE34000FE1DE /* Project object */;
+}

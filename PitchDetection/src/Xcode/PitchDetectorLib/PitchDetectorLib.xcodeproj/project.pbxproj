@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		67DA0C0E1ACA406A00A812C2 /* libfftw3f.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA0C0C1ACA3F6F00A812C2 /* libfftw3f.a */; };
+		C2A1334E1AC9AEC0000FE1DE /* libPitchDetectorLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A133421AC9AEBF000FE1DE /* libPitchDetectorLib.a */; };
+		C2B929641ACB016400C13047 /* AutoCorrelation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B929591ACB016400C13047 /* AutoCorrelation.cpp */; };
+		C2B929651ACB016400C13047 /* AutoCorrelation.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B9295A1ACB016400C13047 /* AutoCorrelation.h */; };
+		C2B929661ACB016400C13047 /* NsdfPeakDetectMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B9295C1ACB016400C13047 /* NsdfPeakDetectMachine.cpp */; };
+		C2B929671ACB016400C13047 /* NsdfPeakDetectMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B9295D1ACB016400C13047 /* NsdfPeakDetectMachine.h */; };
+		C2B929681ACB016400C13047 /* NsdfWalker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B9295E1ACB016400C13047 /* NsdfWalker.cpp */; };
+		C2B929691ACB016400C13047 /* NsdfWalker.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B9295F1ACB016400C13047 /* NsdfWalker.h */; };
+		C2B9296A1ACB016400C13047 /* NsdfWalkerDefs.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B929601ACB016400C13047 /* NsdfWalkerDefs.h */; };
+		C2B9296B1ACB016400C13047 /* PeakDetectMsm.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B929611ACB016400C13047 /* PeakDetectMsm.h */; };
+		C2B9296C1ACB016400C13047 /* PitchDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B929621ACB016400C13047 /* PitchDetector.cpp */; };
+		C2B9296D1ACB016400C13047 /* PitchDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B929631ACB016400C13047 /* PitchDetector.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C2A1334F1AC9AEC0000FE1DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2A1333A1AC9AEBF000FE1DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2A133411AC9AEBF000FE1DE;
+			remoteInfo = PitchDetectorLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		67DA0C0C1ACA3F6F00A812C2 /* libfftw3f.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfftw3f.a; path = ../../../../../../../../../../usr/local/lib/libfftw3f.a; sourceTree = "<group>"; };
+		C2A133421AC9AEBF000FE1DE /* libPitchDetectorLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPitchDetectorLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A1334D1AC9AEC0000FE1DE /* PitchDetectorLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchDetectorLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A133531AC9AEC0000FE1DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2B929591ACB016400C13047 /* AutoCorrelation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AutoCorrelation.cpp; path = ../../PitchDetector/NsdfCompute/AutoCorrelation.cpp; sourceTree = SOURCE_ROOT; };
+		C2B9295A1ACB016400C13047 /* AutoCorrelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoCorrelation.h; path = ../../PitchDetector/NsdfCompute/AutoCorrelation.h; sourceTree = SOURCE_ROOT; };
+		C2B9295C1ACB016400C13047 /* NsdfPeakDetectMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NsdfPeakDetectMachine.cpp; path = ../../PitchDetector/NsdfWalker/NsdfPeakDetectMachine.cpp; sourceTree = SOURCE_ROOT; };
+		C2B9295D1ACB016400C13047 /* NsdfPeakDetectMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NsdfPeakDetectMachine.h; path = ../../PitchDetector/NsdfWalker/NsdfPeakDetectMachine.h; sourceTree = SOURCE_ROOT; };
+		C2B9295E1ACB016400C13047 /* NsdfWalker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NsdfWalker.cpp; path = ../../PitchDetector/NsdfWalker/NsdfWalker.cpp; sourceTree = SOURCE_ROOT; };
+		C2B9295F1ACB016400C13047 /* NsdfWalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NsdfWalker.h; path = ../../PitchDetector/NsdfWalker/NsdfWalker.h; sourceTree = SOURCE_ROOT; };
+		C2B929601ACB016400C13047 /* NsdfWalkerDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NsdfWalkerDefs.h; path = ../../PitchDetector/NsdfWalker/NsdfWalkerDefs.h; sourceTree = SOURCE_ROOT; };
+		C2B929611ACB016400C13047 /* PeakDetectMsm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeakDetectMsm.h; path = ../../PitchDetector/NsdfWalker/PeakDetectMsm.h; sourceTree = SOURCE_ROOT; };
+		C2B929621ACB016400C13047 /* PitchDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PitchDetector.cpp; path = ../../PitchDetector/PitchDetector.cpp; sourceTree = SOURCE_ROOT; };
+		C2B929631ACB016400C13047 /* PitchDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PitchDetector.h; path = ../../PitchDetector/PitchDetector.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C2A1333F1AC9AEBF000FE1DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67DA0C0E1ACA406A00A812C2 /* libfftw3f.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2A1334A1AC9AEC0000FE1DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2A1334E1AC9AEC0000FE1DE /* libPitchDetectorLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C2A133391AC9AEBF000FE1DE = {
+			isa = PBXGroup;
+			children = (
+				67DA0C0C1ACA3F6F00A812C2 /* libfftw3f.a */,
+				C2A133441AC9AEBF000FE1DE /* PitchDetectorLib */,
+				C2A133511AC9AEC0000FE1DE /* PitchDetectorLibTests */,
+				C2A133431AC9AEBF000FE1DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C2A133431AC9AEBF000FE1DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2A133421AC9AEBF000FE1DE /* libPitchDetectorLib.a */,
+				C2A1334D1AC9AEC0000FE1DE /* PitchDetectorLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C2A133441AC9AEBF000FE1DE /* PitchDetectorLib */ = {
+			isa = PBXGroup;
+			children = (
+				C2B929571ACB016400C13047 /* PitchDetector */,
+			);
+			path = PitchDetectorLib;
+			sourceTree = "<group>";
+		};
+		C2A133511AC9AEC0000FE1DE /* PitchDetectorLibTests */ = {
+			isa = PBXGroup;
+			children = (
+				C2A133521AC9AEC0000FE1DE /* Supporting Files */,
+			);
+			path = PitchDetectorLibTests;
+			sourceTree = "<group>";
+		};
+		C2A133521AC9AEC0000FE1DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C2A133531AC9AEC0000FE1DE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C2B929571ACB016400C13047 /* PitchDetector */ = {
+			isa = PBXGroup;
+			children = (
+				C2B929581ACB016400C13047 /* NsdfCompute */,
+				C2B9295B1ACB016400C13047 /* NsdfWalker */,
+				C2B929621ACB016400C13047 /* PitchDetector.cpp */,
+				C2B929631ACB016400C13047 /* PitchDetector.h */,
+			);
+			name = PitchDetector;
+			path = ../../PitchDetector;
+			sourceTree = SOURCE_ROOT;
+		};
+		C2B929581ACB016400C13047 /* NsdfCompute */ = {
+			isa = PBXGroup;
+			children = (
+				C2B929591ACB016400C13047 /* AutoCorrelation.cpp */,
+				C2B9295A1ACB016400C13047 /* AutoCorrelation.h */,
+			);
+			name = NsdfCompute;
+			path = ../../PitchDetector/NsdfCompute;
+			sourceTree = SOURCE_ROOT;
+		};
+		C2B9295B1ACB016400C13047 /* NsdfWalker */ = {
+			isa = PBXGroup;
+			children = (
+				C2B9295C1ACB016400C13047 /* NsdfPeakDetectMachine.cpp */,
+				C2B9295D1ACB016400C13047 /* NsdfPeakDetectMachine.h */,
+				C2B9295E1ACB016400C13047 /* NsdfWalker.cpp */,
+				C2B9295F1ACB016400C13047 /* NsdfWalker.h */,
+				C2B929601ACB016400C13047 /* NsdfWalkerDefs.h */,
+				C2B929611ACB016400C13047 /* PeakDetectMsm.h */,
+			);
+			name = NsdfWalker;
+			path = ../../PitchDetector/NsdfWalker;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C2A133401AC9AEBF000FE1DE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2B929651ACB016400C13047 /* AutoCorrelation.h in Headers */,
+				C2B9296A1ACB016400C13047 /* NsdfWalkerDefs.h in Headers */,
+				C2B9296B1ACB016400C13047 /* PeakDetectMsm.h in Headers */,
+				C2B9296D1ACB016400C13047 /* PitchDetector.h in Headers */,
+				C2B929671ACB016400C13047 /* NsdfPeakDetectMachine.h in Headers */,
+				C2B929691ACB016400C13047 /* NsdfWalker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C2A133411AC9AEBF000FE1DE /* PitchDetectorLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2A133561AC9AEC0000FE1DE /* Build configuration list for PBXNativeTarget "PitchDetectorLib" */;
+			buildPhases = (
+				C2A1333E1AC9AEBF000FE1DE /* Sources */,
+				C2A1333F1AC9AEBF000FE1DE /* Frameworks */,
+				C2A133401AC9AEBF000FE1DE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PitchDetectorLib;
+			productName = PitchDetectorLib;
+			productReference = C2A133421AC9AEBF000FE1DE /* libPitchDetectorLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C2A1334C1AC9AEC0000FE1DE /* PitchDetectorLibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2A133591AC9AEC0000FE1DE /* Build configuration list for PBXNativeTarget "PitchDetectorLibTests" */;
+			buildPhases = (
+				C2A133491AC9AEC0000FE1DE /* Sources */,
+				C2A1334A1AC9AEC0000FE1DE /* Frameworks */,
+				C2A1334B1AC9AEC0000FE1DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C2A133501AC9AEC0000FE1DE /* PBXTargetDependency */,
+			);
+			name = PitchDetectorLibTests;
+			productName = PitchDetectorLibTests;
+			productReference = C2A1334D1AC9AEC0000FE1DE /* PitchDetectorLibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C2A1333A1AC9AEBF000FE1DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Nobuhiro Kuroiwa";
+				TargetAttributes = {
+					C2A133411AC9AEBF000FE1DE = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					C2A1334C1AC9AEC0000FE1DE = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = C2A1333D1AC9AEBF000FE1DE /* Build configuration list for PBXProject "PitchDetectorLib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C2A133391AC9AEBF000FE1DE;
+			productRefGroup = C2A133431AC9AEBF000FE1DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C2A133411AC9AEBF000FE1DE /* PitchDetectorLib */,
+				C2A1334C1AC9AEC0000FE1DE /* PitchDetectorLibTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C2A1334B1AC9AEC0000FE1DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C2A1333E1AC9AEBF000FE1DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2B9296C1ACB016400C13047 /* PitchDetector.cpp in Sources */,
+				C2B929661ACB016400C13047 /* NsdfPeakDetectMachine.cpp in Sources */,
+				C2B929641ACB016400C13047 /* AutoCorrelation.cpp in Sources */,
+				C2B929681ACB016400C13047 /* NsdfWalker.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2A133491AC9AEC0000FE1DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C2A133501AC9AEC0000FE1DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2A133411AC9AEBF000FE1DE /* PitchDetectorLib */;
+			targetProxy = C2A1334F1AC9AEC0000FE1DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C2A133541AC9AEC0000FE1DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+					"~/src/boost/include",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		C2A133551AC9AEC0000FE1DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+					"~/src/boost/include",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		C2A133571AC9AEC0000FE1DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C2A133581AC9AEC0000FE1DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C2A1335A1AC9AEC0000FE1DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PitchDetectorLibTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C2A1335B1AC9AEC0000FE1DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PitchDetectorLibTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C2A1333D1AC9AEBF000FE1DE /* Build configuration list for PBXProject "PitchDetectorLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2A133541AC9AEC0000FE1DE /* Debug */,
+				C2A133551AC9AEC0000FE1DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2A133561AC9AEC0000FE1DE /* Build configuration list for PBXNativeTarget "PitchDetectorLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2A133571AC9AEC0000FE1DE /* Debug */,
+				C2A133581AC9AEC0000FE1DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2A133591AC9AEC0000FE1DE /* Build configuration list for PBXNativeTarget "PitchDetectorLibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2A1335A1AC9AEC0000FE1DE /* Debug */,
+				C2A1335B1AC9AEC0000FE1DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C2A1333A1AC9AEBF000FE1DE /* Project object */;
+}
