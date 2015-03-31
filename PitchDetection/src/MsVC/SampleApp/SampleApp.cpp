@@ -15,7 +15,7 @@
 using namespace std;
 
 // give ..\..\..\..\file_orig.csv in command line parameter for VS
-// $PROJECT_DIR/../../../file_orig.csv for xcode
+// $PROJECT_DIR/../../file_orig.csv for xcode
 int main(int argc, _TCHAR* argv[])
 {
 	if (argc < 1) {
@@ -60,7 +60,7 @@ int main(int argc, _TCHAR* argv[])
 	cout << "freq    :" << pitch.freq << endl;
 	cout << "note    :" << pitch.note << endl;
 	cout << "noteStr :" << pitch.noteStr << endl;
-	cout << "octabe  :" << pitch.octave << endl;
+	cout << "octabe  :" << int(pitch.octave) << endl;
 
 	return 0;
 }
