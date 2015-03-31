@@ -47,14 +47,14 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\usr\local\boost_1_57_0;..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\usr\local\boost_1_57_0;..\..\externals\fftw-3.3.4-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\externals\fftw-3.3.4-dll32;C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libfftw3f-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
@@ -67,7 +67,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\usr\local\boost_1_57_0;..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\usr\local\boost_1_57_0;..\..\externals\fftw-3.3.4-dll32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -76,7 +76,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\usr\local\boost_1_57_0\stage\lib;$(ProjectDir)..\..\externals\fftw-3.3.4-dll32;$(ProjectDir)..\..\..\externals\fftw-3.3.4-dll32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libfftw3f-3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
@@ -84,18 +84,18 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\PitchDetector\NsdfCompute\AutoCorrelation.h" />
-    <ClInclude Include="..\..\..\PitchDetector\NsdfWalker\NsdfPeakDetectMachine.h" />
-    <ClInclude Include="..\..\..\PitchDetector\NsdfWalker\NsdfWalker.h" />
-    <ClInclude Include="..\..\..\PitchDetector\NsdfWalker\NsdfWalkerDefs.h" />
-    <ClInclude Include="..\..\..\PitchDetector\NsdfWalker\PeakDetectMsm.h" />
-    <ClInclude Include="..\..\..\PitchDetector\PitchDetector.h" />
+    <ClInclude Include="..\..\PitchDetector\NsdfCompute\AutoCorrelation.h" />
+    <ClInclude Include="..\..\PitchDetector\NsdfWalker\NsdfPeakDetectMachine.h" />
+    <ClInclude Include="..\..\PitchDetector\NsdfWalker\NsdfWalker.h" />
+    <ClInclude Include="..\..\PitchDetector\NsdfWalker\NsdfWalkerDefs.h" />
+    <ClInclude Include="..\..\PitchDetector\NsdfWalker\PeakDetectMsm.h" />
+    <ClInclude Include="..\..\PitchDetector\PitchDetector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\PitchDetector\NsdfCompute\AutoCorrelation.cpp" />
-    <ClCompile Include="..\..\..\PitchDetector\NsdfWalker\NsdfPeakDetectMachine.cpp" />
-    <ClCompile Include="..\..\..\PitchDetector\NsdfWalker\NsdfWalker.cpp" />
-    <ClCompile Include="..\..\..\PitchDetector\PitchDetector.cpp" />
+    <ClCompile Include="..\..\PitchDetector\NsdfCompute\AutoCorrelation.cpp" />
+    <ClCompile Include="..\..\PitchDetector\NsdfWalker\NsdfPeakDetectMachine.cpp" />
+    <ClCompile Include="..\..\PitchDetector\NsdfWalker\NsdfWalker.cpp" />
+    <ClCompile Include="..\..\PitchDetector\PitchDetector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

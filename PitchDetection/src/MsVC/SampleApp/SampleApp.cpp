@@ -14,7 +14,7 @@
 
 using namespace std;
 
-// give ..\..\..\..\file_orig.csv in command line parameter for VS
+// give ..\..\..\file_orig.csv in command line parameter for VS
 // $PROJECT_DIR/../../file_orig.csv for xcode
 int main(int argc, _TCHAR* argv[])
 {
