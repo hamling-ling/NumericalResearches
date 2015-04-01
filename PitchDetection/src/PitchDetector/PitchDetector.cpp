@@ -19,7 +19,7 @@ PitchDetector::PitchDetector(int samplingRate, int samplingSize)
 : 
 _samplingRate(samplingRate),
 _samplingSize(samplingSize),
-_r(NULL), _m(NULL), _x2(NULL), _nsdf(NULL)
+_r(NULL), _m(NULL), _x(NULL), _x2(NULL), _nsdf(NULL)
 {
 }
 
@@ -27,6 +27,7 @@ PitchDetector::~PitchDetector()
 {
 	delete(_r);
 	delete(_m);
+	delete(_x);
 	delete(_x2);
 	delete(_nsdf);
 }
@@ -45,6 +46,11 @@ bool PitchDetector::Initialize()
 
 	_m = new float[_samplingSize];
 	if (_m == NULL) {
+		return false;
+	}
+
+	_x = new float[_samplingSize];
+	if (_x == NULL) {
 		return false;
 	}
 
@@ -67,7 +73,33 @@ bool PitchDetector::Detect(float* x)
 		return false;
 	}
 
-	if (!ComputeNsdf(x)) {
+	for (int i = 0; i < _samplingSize; i++) {
+		_x2[i] = powf(x[i], 2.0);
+	}
+
+	if (!ComputeNsdf(x, _x2)) {
+		return false;
+	}
+
+	if (AnalyzeNsdf() == -1) {
+		return false;
+	}
+
+	return true;
+}
+
+bool PitchDetector::Detect(int16_t* x)
+{
+	if (!_corr) {
+		return false;
+	}
+
+	for (int i = 0; i < _samplingSize; i++) {
+		_x[i] = static_cast<float>(x[i]);
+		_x2[i] = powf(_x[i], 2.0);
+	}
+
+	if (!ComputeNsdf(_x, _x2)) {
 		return false;
 	}
 
@@ -83,27 +115,18 @@ void PitchDetector::GetPiatch(PitchInfo& pitch)
 	pitch = _pitch;
 }
 
-bool PitchDetector::ComputeNsdf(float* x)
+bool PitchDetector::ComputeNsdf(float* x, float* x2)
 {
 	const int N = _samplingSize;
 
 	// auto correlation
 	_corr->Compute(x, _r);
 
-	// x^2
-	for (int t = 0; t < N; t++) {
-		_x2[t] = x[t] * x[t];
-
-		// debug
-		//std::cout << "r[" << t << "]=" << _r[t] << endl;
-		//std::cout << "x2[" << t << "]=" << _x2[t] << endl;
-	}
-
 	// m(t)
 	memset(_m, 0, sizeof(float)* N);
 	for (int t = 0; t < N; t++) {
 		for (int j = 0; j < N - t; j++) {
-			_m[t] = _m[t] + _x2[j] + _x2[j + t];
+			_m[t] = _m[t] + x2[j] + x2[j + t];
 		}
 	}
 

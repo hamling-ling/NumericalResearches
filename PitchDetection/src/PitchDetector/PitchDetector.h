@@ -33,6 +33,7 @@ public:
 	virtual ~PitchDetector();
 	bool Initialize();
 	bool Detect(float* x);
+	bool Detect(int16_t* x);
 	void GetPiatch(PitchInfo& pitch);
 
 private:
@@ -41,10 +42,11 @@ private:
 	std::shared_ptr<AutoCorrelation> _corr;
 	float* _r;
 	float* _m;
+	float* _x;
 	float* _x2;
 	float* _nsdf;
 	PitchInfo _pitch;
 
-	bool ComputeNsdf(float* x);
+	bool ComputeNsdf(float* x, float* x2);
 	int AnalyzeNsdf();
 };

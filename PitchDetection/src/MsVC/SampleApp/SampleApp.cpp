@@ -31,7 +31,7 @@ int main(int argc, _TCHAR* argv[])
 
 	string line;
 	const int dataNum = 64;
-	float data[dataNum] = { 0 };
+	int16_t data[dataNum] = { 0 };
 	int index = 0;
 	while (getline(file, line) && index < dataNum) {
 		istringstream iss(line);
@@ -40,7 +40,7 @@ int main(int argc, _TCHAR* argv[])
 			cout << "can't convert " << line << " to float" << endl;
 			return 1;
 		}
-		data[index++] = x;
+		data[index++] = static_cast<int16_t>(x * INT16_MAX);
 	}
 	file.close();
 

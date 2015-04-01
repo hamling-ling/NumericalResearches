@@ -18,9 +18,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\PitchDetector\PitchDetector.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\PitchDetector\NsdfCompute\AutoCorrelation.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -34,6 +31,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\PitchDetector\NsdfWalker\PeakDetectMsm.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PitchDetector\PitchDetector.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
