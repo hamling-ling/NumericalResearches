@@ -12,6 +12,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		67DA0C3B1ACBEB7F00A812C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67DA0C371ACBEB7E00A812C2 /* CapturePitchApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 67DA0C2D1ACBEB7E00A812C2;
+			remoteInfo = CapturePitchApp;
+		};
+		67DA0C661ACBEBF000A812C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67DA0C611ACBEBEF00A812C2 /* SoundCaptureLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 67DA0C471ACBEBEF00A812C2;
+			remoteInfo = SoundCaptureLib;
+		};
+		67DA0C681ACBEBF000A812C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67DA0C611ACBEBEF00A812C2 /* SoundCaptureLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 67DA0C521ACBEBEF00A812C2;
+			remoteInfo = SoundCaptureLibTests;
+		};
 		C2A133611AC9AEC1000FE1DE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */;
@@ -48,6 +69,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		67DA0C371ACBEB7E00A812C2 /* CapturePitchApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CapturePitchApp.xcodeproj; path = CapturePitchApp/CapturePitchApp.xcodeproj; sourceTree = "<group>"; };
+		67DA0C611ACBEBEF00A812C2 /* SoundCaptureLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoundCaptureLib.xcodeproj; path = SoundCaptureLib/SoundCaptureLib.xcodeproj; sourceTree = "<group>"; };
 		C2A1332F1AC9AE35000FE1DE /* PitchDetector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PitchDetector; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PitchDetectorLib.xcodeproj; path = PitchDetectorLib/PitchDetectorLib.xcodeproj; sourceTree = "<group>"; };
 		C2B9296F1ACB018500C13047 /* SampleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SampleApp.cpp; path = ../MsVC/SampleApp/SampleApp.cpp; sourceTree = SOURCE_ROOT; };
@@ -65,9 +88,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67DA0C381ACBEB7E00A812C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67DA0C3C1ACBEB7F00A812C2 /* CapturePitchApp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		67DA0C621ACBEBEF00A812C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67DA0C671ACBEBF000A812C2 /* libSoundCaptureLib.a */,
+				67DA0C691ACBEBF000A812C2 /* SoundCaptureLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C2A133261AC9AE34000FE1DE = {
 			isa = PBXGroup;
 			children = (
+				67DA0C611ACBEBEF00A812C2 /* SoundCaptureLib.xcodeproj */,
+				67DA0C371ACBEB7E00A812C2 /* CapturePitchApp.xcodeproj */,
 				C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */,
 				C2A133311AC9AE35000FE1DE /* SampleApp */,
 				C2A133301AC9AE35000FE1DE /* Products */,
@@ -147,8 +189,16 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 67DA0C381ACBEB7E00A812C2 /* Products */;
+					ProjectRef = 67DA0C371ACBEB7E00A812C2 /* CapturePitchApp.xcodeproj */;
+				},
+				{
 					ProductGroup = C2A1335D1AC9AEC0000FE1DE /* Products */;
 					ProjectRef = C2A1335C1AC9AEC0000FE1DE /* PitchDetectorLib.xcodeproj */;
+				},
+				{
+					ProductGroup = 67DA0C621ACBEBEF00A812C2 /* Products */;
+					ProjectRef = 67DA0C611ACBEBEF00A812C2 /* SoundCaptureLib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -159,6 +209,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		67DA0C3C1ACBEB7F00A812C2 /* CapturePitchApp */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = CapturePitchApp;
+			remoteRef = 67DA0C3B1ACBEB7F00A812C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		67DA0C671ACBEBF000A812C2 /* libSoundCaptureLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSoundCaptureLib.a;
+			remoteRef = 67DA0C661ACBEBF000A812C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		67DA0C691ACBEBF000A812C2 /* SoundCaptureLibTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SoundCaptureLibTests.xctest;
+			remoteRef = 67DA0C681ACBEBF000A812C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C2A133621AC9AEC1000FE1DE /* libPitchDetectorLib.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;

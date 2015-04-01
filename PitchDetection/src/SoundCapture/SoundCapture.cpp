@@ -1,6 +1,11 @@
 #include "SoundCapture.h"
+#if WIN32
 #include <al.h>
 #include <alc.h>
+#else
+#include <OpenAL/al.h>
+#include <OpenAL/alc.h>
+#endif
 #include <iostream>// debug
 
 using namespace std;

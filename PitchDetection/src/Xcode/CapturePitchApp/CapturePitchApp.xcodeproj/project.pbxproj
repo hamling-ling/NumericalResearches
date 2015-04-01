@@ -1,0 +1,265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		67DA0C311ACBEB7E00A812C2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 67DA0C301ACBEB7E00A812C2 /* main.cpp */; };
+		67DA0C721ACBECF100A812C2 /* libSoundCaptureLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA0C711ACBECF100A812C2 /* libSoundCaptureLib.a */; };
+		67DA0C741ACBEF7900A812C2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA0C731ACBEF7900A812C2 /* OpenAL.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		67DA0C2B1ACBEB7E00A812C2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		67DA0C2D1ACBEB7E00A812C2 /* CapturePitchApp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CapturePitchApp; sourceTree = BUILT_PRODUCTS_DIR; };
+		67DA0C301ACBEB7E00A812C2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		67DA0C711ACBECF100A812C2 /* libSoundCaptureLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSoundCaptureLib.a; path = ../SoundCaptureLib/build/Debug/libSoundCaptureLib.a; sourceTree = "<group>"; };
+		67DA0C731ACBEF7900A812C2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67DA0C2A1ACBEB7E00A812C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67DA0C741ACBEF7900A812C2 /* OpenAL.framework in Frameworks */,
+				67DA0C721ACBECF100A812C2 /* libSoundCaptureLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		67DA0C241ACBEB7E00A812C2 = {
+			isa = PBXGroup;
+			children = (
+				67DA0C731ACBEF7900A812C2 /* OpenAL.framework */,
+				67DA0C711ACBECF100A812C2 /* libSoundCaptureLib.a */,
+				67DA0C2F1ACBEB7E00A812C2 /* CapturePitchApp */,
+				67DA0C2E1ACBEB7E00A812C2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		67DA0C2E1ACBEB7E00A812C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67DA0C2D1ACBEB7E00A812C2 /* CapturePitchApp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		67DA0C2F1ACBEB7E00A812C2 /* CapturePitchApp */ = {
+			isa = PBXGroup;
+			children = (
+				67DA0C301ACBEB7E00A812C2 /* main.cpp */,
+			);
+			path = CapturePitchApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		67DA0C2C1ACBEB7E00A812C2 /* CapturePitchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67DA0C341ACBEB7E00A812C2 /* Build configuration list for PBXNativeTarget "CapturePitchApp" */;
+			buildPhases = (
+				67DA0C291ACBEB7E00A812C2 /* Sources */,
+				67DA0C2A1ACBEB7E00A812C2 /* Frameworks */,
+				67DA0C2B1ACBEB7E00A812C2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CapturePitchApp;
+			productName = CapturePitchApp;
+			productReference = 67DA0C2D1ACBEB7E00A812C2 /* CapturePitchApp */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67DA0C251ACBEB7E00A812C2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = osakanazabuun;
+				TargetAttributes = {
+					67DA0C2C1ACBEB7E00A812C2 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = 67DA0C281ACBEB7E00A812C2 /* Build configuration list for PBXProject "CapturePitchApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 67DA0C241ACBEB7E00A812C2;
+			productRefGroup = 67DA0C2E1ACBEB7E00A812C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				67DA0C2C1ACBEB7E00A812C2 /* CapturePitchApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		67DA0C291ACBEB7E00A812C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67DA0C311ACBEB7E00A812C2 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		67DA0C321ACBEB7E00A812C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../SoundCapture,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		67DA0C331ACBEB7E00A812C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../SoundCapture,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		67DA0C351ACBEB7E00A812C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kuroiwa/Documents/GitHub/NumericalResearches/PitchDetection/src/Xcode/SoundCaptureLib/build/Debug,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		67DA0C361ACBEB7E00A812C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kuroiwa/Documents/GitHub/NumericalResearches/PitchDetection/src/Xcode/SoundCaptureLib/build/Debug,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		67DA0C281ACBEB7E00A812C2 /* Build configuration list for PBXProject "CapturePitchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67DA0C321ACBEB7E00A812C2 /* Debug */,
+				67DA0C331ACBEB7E00A812C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67DA0C341ACBEB7E00A812C2 /* Build configuration list for PBXNativeTarget "CapturePitchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67DA0C351ACBEB7E00A812C2 /* Debug */,
+				67DA0C361ACBEB7E00A812C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67DA0C251ACBEB7E00A812C2 /* Project object */;
+}
