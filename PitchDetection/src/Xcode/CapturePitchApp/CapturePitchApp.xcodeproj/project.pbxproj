@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		67DA0C311ACBEB7E00A812C2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 67DA0C301ACBEB7E00A812C2 /* main.cpp */; };
 		67DA0C721ACBECF100A812C2 /* libSoundCaptureLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA0C711ACBECF100A812C2 /* libSoundCaptureLib.a */; };
 		67DA0C741ACBEF7900A812C2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DA0C731ACBEF7900A812C2 /* OpenAL.framework */; };
+		C26E19331ACD2F3800609062 /* SoundCaptureApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26E19321ACD2F3800609062 /* SoundCaptureApp.cpp */; };
+		C26E193A1ACD325F00609062 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26E19371ACD325F00609062 /* stdafx.cpp */; };
+		C26E193C1ACD336500609062 /* libPitchDetectorLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C26E193B1ACD336500609062 /* libPitchDetectorLib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,9 +28,13 @@
 
 /* Begin PBXFileReference section */
 		67DA0C2D1ACBEB7E00A812C2 /* CapturePitchApp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CapturePitchApp; sourceTree = BUILT_PRODUCTS_DIR; };
-		67DA0C301ACBEB7E00A812C2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		67DA0C711ACBECF100A812C2 /* libSoundCaptureLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSoundCaptureLib.a; path = ../SoundCaptureLib/build/Debug/libSoundCaptureLib.a; sourceTree = "<group>"; };
+		67DA0C711ACBECF100A812C2 /* libSoundCaptureLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSoundCaptureLib.a; path = ../SoundCaptureLib/build/Debug/libSoundCaptureLib.a; sourceTree = SOURCE_ROOT; };
 		67DA0C731ACBEF7900A812C2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		C26E19321ACD2F3800609062 /* SoundCaptureApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoundCaptureApp.cpp; path = ../../MsVC/SoundCaptureApp/SoundCaptureApp.cpp; sourceTree = SOURCE_ROOT; };
+		C26E19371ACD325F00609062 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stdafx.cpp; path = ../../MsVC/SoundCaptureApp/stdafx.cpp; sourceTree = SOURCE_ROOT; };
+		C26E19381ACD325F00609062 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = ../../MsVC/SoundCaptureApp/stdafx.h; sourceTree = SOURCE_ROOT; };
+		C26E19391ACD325F00609062 /* targetver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = targetver.h; path = ../../MsVC/SoundCaptureApp/targetver.h; sourceTree = SOURCE_ROOT; };
+		C26E193B1ACD336500609062 /* libPitchDetectorLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPitchDetectorLib.a; path = "../../../../../../../Library/Developer/Xcode/DerivedData/PitchDetector-dnlhtrlopgeesohdwnpuqytsersg/Build/Products/Debug/libPitchDetectorLib.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C26E193C1ACD336500609062 /* libPitchDetectorLib.a in Frameworks */,
 				67DA0C741ACBEF7900A812C2 /* OpenAL.framework in Frameworks */,
 				67DA0C721ACBECF100A812C2 /* libSoundCaptureLib.a in Frameworks */,
 			);
@@ -47,6 +54,7 @@
 		67DA0C241ACBEB7E00A812C2 = {
 			isa = PBXGroup;
 			children = (
+				C26E193B1ACD336500609062 /* libPitchDetectorLib.a */,
 				67DA0C731ACBEF7900A812C2 /* OpenAL.framework */,
 				67DA0C711ACBECF100A812C2 /* libSoundCaptureLib.a */,
 				67DA0C2F1ACBEB7E00A812C2 /* CapturePitchApp */,
@@ -65,7 +73,10 @@
 		67DA0C2F1ACBEB7E00A812C2 /* CapturePitchApp */ = {
 			isa = PBXGroup;
 			children = (
-				67DA0C301ACBEB7E00A812C2 /* main.cpp */,
+				C26E19371ACD325F00609062 /* stdafx.cpp */,
+				C26E19381ACD325F00609062 /* stdafx.h */,
+				C26E19391ACD325F00609062 /* targetver.h */,
+				C26E19321ACD2F3800609062 /* SoundCaptureApp.cpp */,
 			);
 			path = CapturePitchApp;
 			sourceTree = "<group>";
@@ -126,7 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67DA0C311ACBEB7E00A812C2 /* main.cpp in Sources */,
+				C26E19331ACD2F3800609062 /* SoundCaptureApp.cpp in Sources */,
+				C26E193A1ACD325F00609062 /* stdafx.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +182,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../../SoundCapture,
+					../../PitchDetector,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -210,6 +223,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../../SoundCapture,
+					../../PitchDetector,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -223,6 +237,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kuroiwa/Documents/GitHub/NumericalResearches/PitchDetection/src/Xcode/SoundCaptureLib/build/Debug,
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PitchDetector-dnlhtrlopgeesohdwnpuqytsersg/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -234,6 +249,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kuroiwa/Documents/GitHub/NumericalResearches/PitchDetection/src/Xcode/SoundCaptureLib/build/Debug,
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PitchDetector-dnlhtrlopgeesohdwnpuqytsersg/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -258,6 +274,7 @@
 				67DA0C361ACBEB7E00A812C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

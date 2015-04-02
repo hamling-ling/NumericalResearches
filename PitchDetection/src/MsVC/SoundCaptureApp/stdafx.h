@@ -5,11 +5,12 @@
 
 #pragma once
 
+#ifdef WIN32
 #include "targetver.h"
 
 #include <stdio.h>
 #include <tchar.h>
-
+#endif
 
 
 // TODO: プログラムに必要な追加ヘッダーをここで参照してください。

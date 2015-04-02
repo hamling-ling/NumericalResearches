@@ -7,6 +7,10 @@
 #include <iostream>
 #include <string>
 
+#if !defined (__WIN32__)
+#define _TCHAR char
+#endif
+
 using namespace std;
 
 struct AppData {
@@ -34,7 +38,7 @@ void SoundCapEvent(SoundCapture* sc, SoundCaptureNotification note)
 	}
 }
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, _TCHAR* argv[])
 {
 	const int samplingRate = 22050;
 	const int samplingSize = 1024;

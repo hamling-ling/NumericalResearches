@@ -65,10 +65,9 @@ SoundCaptureError SoundCapture::Stop()
 	return SoundCaptureErrorNoError;
 }
 
-std::vector<std::string> SoundCapture::GetDevices()
+SoundCaptureError SoundCapture::GetDevices(std::vector<std::string>& vec)
 {
-	std::vector<std::string> devices;
-	return devices;
+	return SoundCaptureErrorNoError;
 }
 
 int SoundCapture::Level()

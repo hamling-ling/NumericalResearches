@@ -27,8 +27,8 @@
 		67DA0C471ACBEBEF00A812C2 /* libSoundCaptureLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoundCaptureLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DA0C521ACBEBEF00A812C2 /* SoundCaptureLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundCaptureLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DA0C581ACBEBEF00A812C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67DA0C6B1ACBEC0F00A812C2 /* SoundCapture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundCapture.cpp; sourceTree = "<group>"; };
-		67DA0C6C1ACBEC0F00A812C2 /* SoundCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCapture.h; sourceTree = "<group>"; };
+		67DA0C6B1ACBEC0F00A812C2 /* SoundCapture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoundCapture.cpp; path = ../../SoundCapture/SoundCapture.cpp; sourceTree = SOURCE_ROOT; };
+		67DA0C6C1ACBEC0F00A812C2 /* SoundCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundCapture.h; path = ../../SoundCapture/SoundCapture.h; sourceTree = SOURCE_ROOT; };
 		67DA0C6F1ACBEC9300A812C2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -367,6 +367,7 @@
 				67DA0C5D1ACBEBEF00A812C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		67DA0C5E1ACBEBEF00A812C2 /* Build configuration list for PBXNativeTarget "SoundCaptureLibTests" */ = {
 			isa = XCConfigurationList;
@@ -375,6 +376,7 @@
 				67DA0C601ACBEBEF00A812C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -6,16 +6,16 @@
 #include <thread>
 #include <mutex>
 
-typedef enum SoundCaptureError {
+typedef enum _SoundCaptureError {
 	SoundCaptureErrorNoError,
 	SoundCaptureErrorAlreadyRunning,
 	SoundCaptureErrorNoDevice,
 	SoundCaptureErrorInternal,
-};
+} SoundCaptureError;
 
-typedef enum SoundCaptureNotificationType {
+typedef enum _SoundCaptureNotificationType {
 	SoundCaptureNotificationTypeCaptured,
-};
+} SoundCaptureNotificationType;
 
 struct SoundCaptureNotification {
 	SoundCaptureNotificationType type;
@@ -34,7 +34,7 @@ public:
 	bool Initialize(SoundCaptureCallback_t callback, void* user);
 	SoundCaptureError Start();
 	SoundCaptureError Stop();
-	std::vector<std::string> GetDevices();
+	SoundCaptureError GetDevices(std::vector<std::string>& vec);
 	SoundCaptureError SelectDevice(int index);
 
 	/**
