@@ -28,13 +28,28 @@ bool SoundCapture::Initialize(SoundCaptureCallback_t callback)
 	return true;
 }
 
-SoundCaptureError Start()
+SoundCaptureError SoundCapture::Start()
 {
+	std::lock_guard<std::recursive_mutex> lock(_mutex);
+
+	if (_isRunning) {
+		return SoundCaptureErrorAlreadyRunning;
+	}
+
+	_thread = thread(&SoundCapture::CaptureLoop, this);
+	_isRunning = true;
+
 	return SoundCaptureErrorNoError;
 }
 
-SoundCaptureError Stop()
+SoundCaptureError SoundCapture::Stop()
 {
+	std::lock_guard<std::recursive_mutex> lock(_mutex);
+	if (_isRunning) {
+		_stopRunning = true;
+		_thread.join();
+	}
+
 	return SoundCaptureErrorNoError;
 }
 
@@ -59,9 +74,6 @@ void SoundCapture::CaptureLoop()
 	ALint val;
 
 	float ttotal;
-	unsigned int ccount;
-	long int count;
-	count = 0;
 
 	dev[0] = alcOpenDevice(NULL);
 	ctx = alcCreateContext(dev[0], NULL);
@@ -85,7 +97,7 @@ void SoundCapture::CaptureLoop()
 	alSourcePlay(source);
 	alcCaptureStart(dev[1]);    //starts ring buffer
 
-	while (1)
+	while (!_stopRunning)
 	{
 		/* Check if any queued buffers are finished */
 		alGetSourcei(source, AL_BUFFERS_PROCESSED, &val);
@@ -101,15 +113,8 @@ void SoundCapture::CaptureLoop()
 
 
 		//***** Process/filter captured data here *****//
-
-
-		count = count + 1;
-		if (count >= 330){
-			break;
-		}
-
 		for (int ii = 0; ii<val; ++ii) {
-			data[ii] *= 2.0; // Make it quieter
+			data[ii] *= 0.1; // Make it quieter
 		}
 		//***** end Process/filter captured data here *****//
 
@@ -144,4 +149,6 @@ void SoundCapture::CaptureLoop()
 	alcMakeContextCurrent(NULL);
 	alcDestroyContext(ctx);
 	alcCloseDevice(dev[0]);
+
+	_isRunning = false;
 }

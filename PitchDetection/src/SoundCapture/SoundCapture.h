@@ -3,9 +3,12 @@
 #include <vector>
 #include <cstdint>
 #include <functional>
+#include <thread>
+#include <mutex>
 
 typedef enum SoundCaptureError {
 	SoundCaptureErrorNoError,
+	SoundCaptureErrorAlreadyRunning,
 	SoundCaptureErrorNoDevice,
 	SoundCaptureErrorInternal,
 };
@@ -30,6 +33,11 @@ private:
 	const int _sampleNum;
 	int16_t* _sampleBuf;
 	int _selectedDeviceIndex;
+	std::thread _thread;
+	bool _isRunning;
+	bool _stopRunning;
+	std::recursive_mutex _mutex;
+
 	SoundCaptureCallback_t _callback;
 	void CaptureLoop();
 };
