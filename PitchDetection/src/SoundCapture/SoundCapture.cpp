@@ -6,7 +6,15 @@
 #include <OpenAL/al.h>
 #include <OpenAL/alc.h>
 #endif
+
+#include <algorithm>
+
+//#define OUTPUT_TO_FILE
+
+#ifdef OUTPUT_TO_FILE
 #include <iostream>// debug
+#include <fstream>
+#endif
 
 using namespace std;
 
@@ -20,17 +28,18 @@ SoundCapture::~SoundCapture()
 	delete(_sampleBuf);
 }
 
-bool SoundCapture::Initialize(SoundCaptureCallback_t callback)
+bool SoundCapture::Initialize(SoundCaptureCallback_t callback, void* user)
 {
 	_callback = callback;
 	_sampleBuf = new int16_t[_sampleNum];
+	_user = user;
 
 	return true;
 }
 
 SoundCaptureError SoundCapture::Start()
 {
-	std::lock_guard<std::recursive_mutex> lock(_mutex);
+	std::lock_guard<std::recursive_mutex> lock(_apiMutex);
 
 	if (_isRunning) {
 		return SoundCaptureErrorAlreadyRunning;
@@ -44,9 +53,12 @@ SoundCaptureError SoundCapture::Start()
 
 SoundCaptureError SoundCapture::Stop()
 {
-	std::lock_guard<std::recursive_mutex> lock(_mutex);
+	std::lock_guard<std::recursive_mutex> lock(_apiMutex);
 	if (_isRunning) {
 		_stopRunning = true;
+	}
+
+	if (_thread.joinable()) {
 		_thread.join();
 	}
 
@@ -59,96 +71,96 @@ std::vector<std::string> SoundCapture::GetDevices()
 	return devices;
 }
 
+int SoundCapture::Level()
+{
+	std::lock_guard<std::recursive_mutex> lock(_dataMutex);
+	return static_cast<int>(_level / 32768.0f * 100);
+}
+
 SoundCaptureError SoundCapture::SelectDevice(int index)
 {
 	return SoundCaptureErrorNoError;
 }
 
+SoundCaptureError SoundCapture::GetBuffer(float* out)
+{
+	if (out) {
+		std::lock_guard<std::recursive_mutex> lock(_dataMutex);
+		for (int i = 0; i < _sampleNum; i++) {
+			out[i] = _sampleBuf[i] / 32768.0f;
+		}
+	}
+	return SoundCaptureErrorNoError;
+}
+
 void SoundCapture::CaptureLoop()
 {
-	ALCdevice *dev[2];
-	ALCcontext *ctx;
-	ALuint source, buffers[3];
-	char data[5000];
-	ALuint buf;
-	ALint val;
-
-	float ttotal;
-
-	dev[0] = alcOpenDevice(NULL);
-	ctx = alcCreateContext(dev[0], NULL);
-	alcMakeContextCurrent(ctx);
-
-	alGenSources(1, &source);
-	alGenBuffers(3, buffers);
-
-	/* Setup some initial silent data to play out of the source */
-	alBufferData(buffers[0], AL_FORMAT_MONO16, data, sizeof(data), 22050);
-	alBufferData(buffers[1], AL_FORMAT_MONO16, data, sizeof(data), 22050);
-	alBufferData(buffers[2], AL_FORMAT_MONO16, data, sizeof(data), 22050);
-	alSourceQueueBuffers(source, 3, buffers);
+	ALCdevice *dev = NULL;
+	ALCcontext *ctx = NULL;
+	ALshort* data = static_cast<int16_t*>(_sampleBuf);
 
 	/* If you don't need 3D spatialization, this should help processing time */
 	alDistanceModel(AL_NONE);
+	dev = alcCaptureOpenDevice(NULL, _sampleRate, AL_FORMAT_MONO16, sizeof(ALshort)*_sampleNum);
 
-	dev[1] = alcCaptureOpenDevice(NULL, 22050, AL_FORMAT_MONO16, sizeof(data) / 2); //22050 mean 22.050 samples per     second. or 44100 for 44.1 per second.
+	ctx = alcCreateContext(dev, NULL);
+	alcMakeContextCurrent(ctx);
 
-	/* Start playback and capture, and enter the audio loop */
-	alSourcePlay(source);
-	alcCaptureStart(dev[1]);    //starts ring buffer
+	/* Start capture, and enter the audio loop */
+	alcCaptureStart(dev);    //starts ring buffer
 
 	while (!_stopRunning)
 	{
-		/* Check if any queued buffers are finished */
-		alGetSourcei(source, AL_BUFFERS_PROCESSED, &val);
-		if (val <= 0)
-			continue;
-
 		/* Check how much audio data has been captured (note that 'val' is the
 		* number of frames, not bytes) */
-		alcGetIntegerv(dev[1], ALC_CAPTURE_SAMPLES, 1, &val);
+		ALint capturedFrameNum;
+		alcGetIntegerv(dev, ALC_CAPTURE_SAMPLES, 1, &capturedFrameNum);
 
-		/* Read the captured audio */
-		alcCaptureSamples(dev[1], data, val);
-
-
-		//***** Process/filter captured data here *****//
-		for (int ii = 0; ii<val; ++ii) {
-			data[ii] *= 0.1; // Make it quieter
+		if (capturedFrameNum <= _sampleNum) {
+			continue;
 		}
-		//***** end Process/filter captured data here *****//
 
-		/* Pop the oldest finished buffer, fill it with the new capture data,
-		then re-queue it to play on the source */
-		alSourceUnqueueBuffers(source, 1, &buf);
-		alBufferData(buf, AL_FORMAT_MONO16, data, val * 2 /* bytes here, not
-														  frames */, 22050);
-		alSourceQueueBuffers(source, 1, &buf);
-
-		/* Make sure the source is still playing */
-		alGetSourcei(source, AL_SOURCE_STATE, &val);
-
-		if (val != AL_PLAYING)
 		{
-			alSourcePlay(source);
+			std::lock_guard<std::recursive_mutex> lock(_dataMutex);
+			/* Read the captured audio */
+			memset(data, 0, sizeof(ALshort) * _sampleNum);
+			alcCaptureSamples(dev, data, _sampleNum);
+
+			//***** Process/filter captured data here *****//
+			ProcessData(static_cast<int16_t*>(data), _sampleNum);
+		}
+
+		if (_callback) {
+			SoundCaptureNotification note;
+			note.type = SoundCaptureNotificationTypeCaptured;
+			note.user = _user;
+			_callback(this, note);
 		}
 	}
 
-	cout << "fgggggggg\n";
-
-
 	/* Shutdown and cleanup */
-	alcCaptureStop(dev[1]);
-	alcCaptureCloseDevice(dev[1]);
-
-	alSourceStop(source);
-	alDeleteSources(1, &source);
-	alDeleteBuffers(3, buffers);
-	alDeleteBuffers(1, &buf);
+	alcCaptureStop(dev);
+	alcCaptureCloseDevice(dev);
 
 	alcMakeContextCurrent(NULL);
 	alcDestroyContext(ctx);
-	alcCloseDevice(dev[0]);
 
 	_isRunning = false;
+}
+
+void SoundCapture::ProcessData(int16_t *data, int dataNum)
+{
+#ifdef OUTPUT_TO_FILE
+	std::ofstream outfile("new.txt", std::ofstream::trunc);
+#endif
+
+	int16_t maxValue = 0;
+	for (int i = 0; i<dataNum; i++) {
+#ifdef OUTPUT_TO_FILE
+		outfile << int(data[i]) << endl;
+#endif
+		maxValue = max(data[i], maxValue);
+	}
+
+	_level = maxValue;
 }

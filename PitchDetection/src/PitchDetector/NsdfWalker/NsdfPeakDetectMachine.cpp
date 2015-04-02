@@ -26,7 +26,9 @@ namespace osakanaengine {
 
 	void NsdfPeakDetectMachine::Input(float x)
 	{
+#if DEBUG_OUT
 		std::cout << "x[" << _sm._context.currentIndex << "]=" << x << std::endl;
+#endif
 		_sm.Input(x, _sm);
 	}
 

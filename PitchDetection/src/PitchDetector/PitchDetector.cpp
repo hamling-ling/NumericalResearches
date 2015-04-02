@@ -11,8 +11,8 @@ using namespace osakanaengine;
 static const float kNoteConst = log10(pow(2.0f, 1.0f / 12.0f));
 const char* kNoteStrings[] {
 	"A", "Bes", "B", "C",
-		"Cis", "D", "Dis", "E",
-		"F", "Fis", "G", "Gis",
+	"Cis", "D", "Dis", "E",
+	"F", "Fis", "G", "Gis",
 };
 
 PitchDetector::PitchDetector(int samplingRate, int samplingSize)
@@ -163,6 +163,9 @@ int PitchDetector::AnalyzeNsdf()
 
 	float dnote = log10(freq / 27.5f) / kNoteConst;
 	int inote = static_cast<int>(0.5f + dnote);
+	if (inote < 0) {
+		return -1;
+	}
 
 	_pitch.note = static_cast<Note>(inote);
 	_pitch.noteStr = kNoteStrings[inote % 12];

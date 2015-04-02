@@ -13,8 +13,17 @@ typedef enum SoundCaptureError {
 	SoundCaptureErrorInternal,
 };
 
+typedef enum SoundCaptureNotificationType {
+	SoundCaptureNotificationTypeCaptured,
+};
+
+struct SoundCaptureNotification {
+	SoundCaptureNotificationType type;
+	void* user;
+};
+
 class SoundCapture;
-typedef std::function < void(SoundCapture*, void*)> SoundCaptureCallback_t;
+typedef std::function < void(SoundCapture*, SoundCaptureNotification)> SoundCaptureCallback_t;
 
 class SoundCapture
 {
@@ -22,11 +31,21 @@ public:
 	SoundCapture(int sampleRate, int sampleNum);
 	virtual ~SoundCapture();
 
-	bool Initialize(SoundCaptureCallback_t callback);
+	bool Initialize(SoundCaptureCallback_t callback, void* user);
 	SoundCaptureError Start();
 	SoundCaptureError Stop();
 	std::vector<std::string> GetDevices();
 	SoundCaptureError SelectDevice(int index);
+
+	/**
+	 *	Get recording signal level.
+	 */
+	int Level();
+
+	/**
+	 *	
+	 */
+	SoundCaptureError GetBuffer(float* out);
 
 private:
 	const int _sampleRate;
@@ -36,9 +55,13 @@ private:
 	std::thread _thread;
 	bool _isRunning;
 	bool _stopRunning;
-	std::recursive_mutex _mutex;
-
+	std::recursive_mutex _apiMutex;
+	std::recursive_mutex _dataMutex;
+	uint16_t _level;
+	void* _user;
 	SoundCaptureCallback_t _callback;
+
 	void CaptureLoop();
+	void ProcessData(int16_t* data, int dataNum);
 };
 

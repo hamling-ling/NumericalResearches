@@ -28,11 +28,15 @@ namespace osakanaengine {
 
 	void NsdfWalker::BellStarted(NsdfPeakDetectMachine* pdm)
 	{
+#if DEBUG_OUT
 		std::cout << "bell started" << std::endl;
+#endif
 	}
 
 	void NsdfWalker::BellFinished(NsdfPeakDetectMachine* pdm)
 	{
+#if DEBUG_OUT
 		std::cout << "bell finished" << std::endl;
+#endif
 	}
 }

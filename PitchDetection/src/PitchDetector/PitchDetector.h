@@ -20,6 +20,7 @@ typedef enum Note_ {
 } Note;
 
 typedef struct PitchInfo_ {
+	bool error;
 	float freq;
 	Note note;
 	const char* noteStr;

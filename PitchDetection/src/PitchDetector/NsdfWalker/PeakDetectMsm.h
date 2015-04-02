@@ -180,8 +180,10 @@ namespace osakanaengine {
 
 				context.keyMaxs.push_back(context.localKeyMax);
 
+#ifdef DEBUG_OUT
 				std::cout << "bell finished maximum(value,index)=("
 					<< context.localKeyMax.value << ", " << context.localKeyMax.index << ")" << std::endl;
+#endif
 
 				// reset local key maximum
 				context.localKeyMax.index = 0;
